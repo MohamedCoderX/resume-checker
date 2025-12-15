@@ -2,6 +2,7 @@ import { BookOpenIcon, RocketLaunchIcon } from "@heroicons/react/24/solid";
 import { BsGraphUpArrow } from "react-icons/bs";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
+import { Link } from "react-router";
 
 export default function HeroSection() {
   const controls = useAnimation();
@@ -75,7 +76,7 @@ export default function HeroSection() {
           }}
         >
           <AnimatedWord text="Ace Your Tech Interviews" />
-          <AnimatedWord text="With Real SQL Skills – Not Just Theory" />
+          <AnimatedWord text="With Real Skills – Not Just Theory" />
         </motion.h1>
 
         {/* Subtitle */}
@@ -89,7 +90,7 @@ export default function HeroSection() {
           }}
           transition={{ duration: 0.8, delay: 1 }}
         >
-          Practice real-world SQL queries, optimize your resume for ATS, and test your
+          Practice real-world queries, optimize your resume for ATS, and test your
           communication & aptitude — all in one place. Free to start.
         </motion.p>
 
@@ -113,10 +114,10 @@ export default function HeroSection() {
             className="px-6 py-3 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 text-gray-700 font-medium flex items-center justify-center gap-2"
           >
             <BookOpenIcon className="w-5 h-5 text-gray-600" />
-            <span>Explore Courses</span>
+            <Link to="/courses"><span>Explore Courses</span></Link>
           </motion.button>
 
-          <motion.button
+          {/* <motion.button
             whileHover={{
               scale: 1.05,
               boxShadow: "0px 0px 15px rgba(236,72,153,0.4)",
@@ -126,7 +127,7 @@ export default function HeroSection() {
           >
             <RocketLaunchIcon className="w-5 h-5 text-white" />
             <span>Start Learning Now</span>
-          </motion.button>
+          </motion.button> */}
         </motion.div>
       </section>
     </div>
