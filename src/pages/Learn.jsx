@@ -213,7 +213,7 @@ const[tit,setit] = useState(true);
               </button> */}
 
               <button
-                onClick={() => window.location.href = `/learn/${course.url.replace(/\s+/g, '-').toLowerCase()}`}
+                onClick={() => navigate(`/learn/${course.url.replace(/\s+/g, '-').toLowerCase()}`)}
                 className="flex items-center gap-2 bg-pink-200 hover:bg-pink-300 text-black px-4 py-2 mt-4 rounded-xl border border-purple-400 transition text-base font-light"
               >
                 <FaPlay /> Start Learning
