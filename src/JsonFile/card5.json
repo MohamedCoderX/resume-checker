@@ -1,0 +1,124 @@
+{
+  "title": "Learn SQL with Step-by-Step Visual Execution",
+  "subtitle1": "Understand INNER JOIN in SQL.",
+  "subtitle2": "Learn how to combine data from two related tables.",
+  "cardhead": "The Problem",
+  "cardcontent": "Ananya wants to display student names with their department head. The details of department heads are stored in another table. INNER JOIN helps her link both tables!",
+  "content1": "Input Dataset",
+  "content2": "Students + Departments table:",
+  "content3": "Table: Students & Departments",
+  "codeComQuery": "-- 1 View students\nSELECT * FROM students;\n\n-- 2 View departments\nSELECT * FROM departments;\n\n-- 3 Join student with department head\nSELECT s.name, s.department, d.head FROM students s INNER JOIN departments d ON s.department = d.department;",
+  "codeComQuery1": "SELECT * FROM EMPLOYEE ; \n \n\n",
+  "card2head": "The INNER JOIN Concept",
+  "card2content": "INNER JOIN combines rows from two or more tables only when there is a matching value in both tables, based on the specified ON condition. ",
+  "table": {
+      "head1": "student_id",
+      "head2": "name",
+      "head3": "department",
+      "head4": "marks",
+      "person": [
+          { "id": "1", "username": "Rahul", "loyaltier": "Science", "booktime": "85" },
+          { "id": "2", "username": "Priya", "loyaltier": "Commerce", "booktime": "90" },
+          { "id": "3", "username": "Kiran", "loyaltier": "Arts", "booktime": "78" },
+          { "id": "4", "username": "Sneha", "loyaltier": "Science", "booktime": "92" },
+          { "id": "5", "username": "Ramesh", "loyaltier": "Commerce", "booktime": "88" },
+          { "id": "6", "username": "Neha", "loyaltier": "Arts", "booktime": "81" }
+      ]
+  },
+  "table1": {
+      "icons": "icon1",
+      "title": "Students Table (Alias: s)",
+      "word": "The first table (left side) containing student records.",
+      "code": "SELECT * FROM students;",
+      "head1": "name",
+      "head2": "department",
+      "person": [
+          { "id": "Rahul", "username": "Science" },
+          { "id": "Priya", "username": "Commerce" },
+          { "id": "Kiran", "username": "Arts" },
+          { "id": "Sneha", "username": "Science" },
+          { "id": "Ramesh", "username": "Commerce" },
+          { "id": "Neha", "username": "Arts" }
+      ]
+  },
+  "table2": {
+      "head1": "department",
+      "head2": "head",
+      "icons": "icon2",
+      "title": "Departments Table (Alias: d)",
+      "word": "The second table (right side) containing department head records.",
+      "code": "SELECT department, head FROM departments;",
+      "person": [
+          { "id": "Science", "username": "Dr. Mehta" },
+          { "id": "Commerce", "username": "Dr. Rao" },
+          { "id": "Arts", "username": "Dr. Latha" }
+      ]
+  },
+  "table3": {
+      "head1": "name",
+      "head2": "DeptHead",
+      "icons": "icon3",
+      "title": "INNER JOIN Output",
+      "word": "The result includes only students whose `department` exactly matches a `department` in the `departments` table.",
+      "code": "SELECT s.name, d.head FROM students s INNER JOIN departments d ON s.department = d.department;",
+      "person": [
+          { "id": "Rahul", "username": "Dr. Mehta" },
+          { "id": "Priya", "username": "Dr. Rao" },
+          { "id": "Kiran", "username": "Dr. Latha" },
+          { "id": "Sneha", "username": "Dr. Mehta" },
+          { "id": "Ramesh", "username": "Dr. Rao" },
+          { "id": "Neha", "username": "Dr. Latha" }
+      ]
+  },
+  "table4": {
+      "icons": "icon4",
+      "title": "SQL Join Visualization",
+      "word": "The most crucial step in any join is defining the correct common column for the ON clause. This ensures records are matched logically (e.g., student's department matches department's name).",
+      "code": "SELECT s.name, s.department, d.head \nFROM students s \nINNER JOIN departments d \nON s.department = d.department;",
+      "head1": "Join Condition",
+      "head2": "s.department = d.department",
+      "person": [
+          { "id": "Match 1", "username": "Science = Science" },
+          { "id": "Match 2", "username": "Commerce = Commerce" },
+          { "id": "Match 3", "username": "Arts = Arts" }
+      ]
+  },
+  "multicont": [
+      {
+          "id": "1",
+          "word1": "Identify the common column between two tables.",
+          "word2": "Use aliases (e.g., s and d) for table names to simplify the query.",
+          "word3": "Determine which columns from both tables are needed in the final output.",
+          "word4": "Understand that INNER JOIN automatically filters out unmatched rows.",
+          "word5": "SQL example starting with: \n SELECT s.name, d.head…"
+      }
+  ],
+  "Lasttable": {
+      "head1": "ID",
+      "head2": "Name",
+      "head3": "Department",
+      "head4": "Position",
+      "head5": "Salary",
+      "person": [
+          { "id": "1", "username": "Siva", "loyaltier": "Engineering", "booktime": "Software Engineer", "class": "80000" },
+          { "id": "2", "username": "Kaniga", "loyaltier": "Marketing", "booktime": "Marketing Manager", "class": "95000" },
+          { "id": "3", "username": "Mathumitha", "loyaltier": "Engineering", "booktime": "UI/UX Designer", "class": "70000" },
+          { "id": "4", "username": "Priya", "loyaltier": "Engineering", "booktime": "Senior Engineer", "class": "110000" },
+          { "id": "5", "username": "Arjun", "loyaltier": "Sales", "booktime": "Sales Representative", "class": "60000" },
+          { "id": "6", "username": "Tamil", "loyaltier": "HR", "booktime": "HR Specialist", "class": "90000" }
+      ]
+  },
+  "ExpOutput": {
+      "head1": "employee_name",
+      "head2": "employee_salary",
+      "person": [
+          { "id": "Siva", "username": "80000" },
+          { "id": "Kaniga", "username": "95000" },
+          { "id": "Mathumitha", "username": "70000" },
+          { "id": "Priya", "username": "110000" },
+          { "id": "Arjun", "username": "60000" },
+          { "id": "Tamil", "username": "90000" }
+      ]
+  }
+  
+}

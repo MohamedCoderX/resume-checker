@@ -1,0 +1,119 @@
+{
+  "title": "Learn SQL with Step-by-Step Visual Execution",
+  "subtitle1": "Understand LEFT JOIN in SQL.",
+  "subtitle2": "Learn how to keep all rows from the left table even if no match exists.",
+  "cardhead": "The Problem",
+  "cardcontent": "Now a new department 'Sports' is added without a head assigned yet. Ananya wants to list all departments with their heads, even if some departments don’t have a head. LEFT JOIN helps!",
+  "content1": "Dataset",
+  "content2": "Students + Departments table:",
+  "content3": "Table: Departments (updated)",
+  "codeComQuery": "-- LEFT JOIN example\nSELECT d.department, d.head FROM departments d LEFT JOIN students s ON d.department = s.department GROUP BY d.department, d.head;",
+  "codeComQuery1": "SELECT * FROM EMPLOYEE ; \n \n\n",
+  "card2head": "Why LEFT JOIN Is Important ",
+  "card2content": "LEFT JOIN helps you fetch all records from the main table even when related data is missing. You'll understand how unmatched rows appear as NULL, how JOINs combine information across tables, and how SQL ensures no department is left out—even without a head assigned.",
+  "table": {
+      "head1": "student_id",
+      "head2": "name",
+      "head3": "department",
+      "head4": "marks",
+      "person": [
+          { "id": "1", "username": "Rahul", "loyaltier": "Science", "booktime": "85" },
+          { "id": "2", "username": "Priya", "loyaltier": "Commerce", "booktime": "90" },
+          { "id": "3", "username": "Kiran", "loyaltier": "Arts", "booktime": "78" },
+          { "id": "4", "username": "Sneha", "loyaltier": "Science", "booktime": "92" },
+          { "id": "5", "username": "Ramesh", "loyaltier": "Commerce", "booktime": "88" },
+          { "id": "6", "username": "Neha", "loyaltier": "Arts", "booktime": "81" }
+      ]
+  },
+  "table1": {
+      "icons": "icon1",
+      "head1": "department",
+      "head2": "total_students",
+      "title": "Students Count by Department (Full List)",
+      "word": "Counts how many students belong to each department. The LEFT JOIN ensures 'Sports' is included, showing a count of 0.",
+      "code": "SELECT d.department, COUNT(s.student_id) AS total_students\nFROM departments d\nLEFT JOIN students s\nON d.department = s.department\nGROUP BY d.department;",
+      "person": [
+          { "id": "Science", "username": "2" },
+          { "id": "Commerce", "username": "2" },
+          { "id": "Arts", "username": "2" },
+          { "id": "Sports", "username": "0" }
+      ]
+  },
+  "table2": {
+      "head1": "department",
+      "head2": "head",
+      "icons": "icon2",
+      "title": "Department Heads Overview (Left Table)",
+      "word": "Shows each department and its assigned head. Notice that the new 'Sports' department has an assigned head 'Dr. Sanjay', but no students are linked.",
+      "code": "SELECT department, head FROM departments;",
+      "person": [
+          { "id": "Science", "username": "Dr. Mehta" },
+          { "id": "Commerce", "username": "Dr. Rao" },
+          { "id": "Arts", "username": "Dr. Latha" },
+          { "id": "Sports", "username": "Dr. Sanjay" }
+      ]
+  },
+  "table3": {
+      "head1": "department",
+      "head2": "Head",
+      "icons": "icon3",
+      "title": "LEFT JOIN Output",
+      "word": "This output shows all departments (from the left table: `departments`). Since no students are in the 'Sports' department, the `student` columns would be NULL, but since we only selected `d.head`, the assigned head is shown.",
+      "code": "SELECT d.department, d.head FROM departments d LEFT JOIN students s ON d.department = s.department;",
+      "person": [
+          { "id": "Science", "username": "Dr. Mehta" },
+          { "id": "Commerce", "username": "Dr. Rao" },
+          { "id": "Arts", "username": "Dr. Latha" },
+          { "id": "Sports", "username": "Dr. Sanjay" }
+      ]
+  },
+  "table4": {
+      "icons": "icon4",
+      "title": "Identifying Departments with No Students",
+      "word": "Identifies departments that have no matching records in the right table (`students`) by filtering for `NULL` values after the LEFT JOIN. This is a common pattern.",
+      "code": "SELECT d.department\nFROM departments d\nLEFT JOIN students s\nON d.department = s.department\nWHERE s.student_id IS NULL;",
+      "head1": "department",
+      "head2": "status",
+      "person": [
+          { "id": "Sports", "username": "No Students" }
+      ]
+  },
+  "multicont": [
+      {
+          "id": "1",
+          "word1": "All records from the left table are always included.",
+          "word2": "Unmatched columns from the right table appear as NULL.",
+          "word3": "Use `WHERE column IS NULL` after a LEFT JOIN to find unmatched records.",
+          "word4": "The LEFT JOIN keyword can sometimes be written as LEFT OUTER JOIN.",
+          "word5": "SQL example starting with: \n SELECT d.department, s.name…"
+      }
+  ],
+  "Lasttable": {
+      "head1": "ID",
+      "head2": "Name",
+      "head3": "Department",
+      "head4": "Position",
+      "head5": "Salary",
+      "person": [
+          { "id": "1", "username": "Siva", "loyaltier": "Engineering", "booktime": "Software Engineer", "class": "80000" },
+          { "id": "2", "username": "Kaniga", "loyaltier": "Marketing", "booktime": "Marketing Manager", "class": "95000" },
+          { "id": "3", "username": "Mathumitha", "loyaltier": "Engineering", "booktime": "UI/UX Designer", "class": "70000" },
+          { "id": "4", "username": "Priya", "loyaltier": "Engineering", "booktime": "Senior Engineer", "class": "110000" },
+          { "id": "5", "username": "Arjun", "loyaltier": "Sales", "booktime": "Sales Representative", "class": "60000" },
+          { "id": "6", "username": "Tamil", "loyaltier": "HR", "booktime": "HR Specialist", "class": "90000" }
+      ]
+  },
+  "ExpOutput": {
+      "head1": "employee_name",
+      "head2": "employee_salary",
+      "person": [
+          { "id": "Siva", "username": "80000" },
+          { "id": "Kaniga", "username": "95000" },
+          { "id": "Mathumitha", "username": "70000" },
+          { "id": "Priya", "username": "110000" },
+          { "id": "Arjun", "username": "60000" },
+          { "id": "Tamil", "username": "90000" }
+      ]
+  }
+      }
+  

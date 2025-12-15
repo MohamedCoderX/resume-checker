@@ -1,0 +1,104 @@
+{
+  "title": "Learn SQL with Step-by-Step Visual Execution",
+  "subtitle1": "Understand DISTINCT in SQL.",
+  "subtitle2": "Learn how to remove duplicates and get unique values.",
+  "cardhead": "The Problem",
+  "cardcontent": "Ananya noticed that some departments might repeat in the students table. Her mentor asked her to find the list of unique departments. She remembers DISTINCT can remove duplicates!",
+  "content1": "Input Dataset",
+  "content2": "We will use the student table:",
+  "content3": "Table: Students",
+  "codeComQuery": "-- 1 Show all departments\nSELECT department FROM students;\n\n-- 2 Show unique departments only\nSELECT DISTINCT department FROM students;\n\n-- 3 Count distinct departments\nSELECT COUNT(DISTINCT department) AS total_departments FROM students;",
+  "codeComQuery1": "SELECT * FROM EMPLOYEE ; \n \n\n",
+  "card2head": "Key Concepts You Will Learn",
+  "card2content": "Understand how SQL handles duplicate values using DISTINCT, explore full dataset scanning, identify repeating values with GROUP BY, and learn how HAVING filters aggregated results.",
+  "table": {
+      "head1": "student_id",
+      "head2": "name",
+      "head3": "department",
+      "head4": "marks",
+      "person": [
+          { "id": "1", "username": "Rahul", "loyaltier": "Science", "booktime": "85" },
+          { "id": "2", "username": "Priya", "loyaltier": "Commerce", "booktime": "90" },
+          { "id": "3", "username": "Kiran", "loyaltier": "Arts", "booktime": "78" },
+          { "id": "4", "username": "Sneha", "loyaltier": "Science", "booktime": "92" },
+          { "id": "5", "username": "Ramesh", "loyaltier": "Commerce", "booktime": "88" },
+          { "id": "6", "username": "Neha", "loyaltier": "Arts", "booktime": "81" },
+          { "id": "7", "username": "Arun", "loyaltier": "Engineering", "booktime": "95" },
+          { "id": "8", "username": "Bhavya", "loyaltier": "Science", "booktime": "87" },
+          { "id": "9", "username": "Chen", "loyaltier": "Engineering", "booktime": "80" }
+      ]
+  },
+  "table1": {
+      "title": "Average Marks by Department",
+      "icons": "icon1",
+      "code": "SELECT department, AVG(marks) FROM students GROUP BY department;",
+      "head1": "department",
+      "head2": "avg_marks",
+      "person": [
+          { "id": "Science", "username": "88.0" },
+          { "id": "Commerce", "username": "89.0" },
+          { "id": "Arts", "username": "79.5" },
+          { "id": "Engineering", "username": "87.5" }
+      ]
+  },
+  "table2": {
+      "head1": "S.No",
+      "head2": "department",
+      "icons": "icon2",
+      "word": "Displays every department value from the table, including repeated ones. Helps you see duplicates before applying DISTINCT.",
+      "title": "All Department Values",
+      "code": "SELECT department FROM students;",
+      "person": [
+          { "id": "1", "username": "Science" },
+          { "id": "2", "username": "Commerce" },
+          { "id": "3", "username": "Arts" },
+          { "id": "4", "username": "Science" },
+          { "id": "5", "username": "Commerce" },
+          { "id": "6", "username": "Arts" },
+          { "id": "7", "username": "Engineering" },
+          { "id": "8", "username": "Science" },
+          { "id": "9", "username": "Engineering" }
+      ]
+  },
+  "table3": {
+      "head1": "department",
+      "icons": "icon3",
+      "title": "Unique Departments Only",
+      "code": "SELECT DISTINCT department FROM students;",
+      "word": "Removes all duplicate department names and shows only the unique values using DISTINCT. (Total: 4 Unique Departments)",
+      "person": [
+          { "id": "Science" },
+          { "id": "Commerce" },
+          { "id": "Arts" },
+          { "id": "Engineering" }
+      ]
+  },
+  "table4": {
+      "icons": "icon4",
+      "title": "Departments Appearing More Than Once",
+      "word": "Shows departments that repeat in the students table using GROUP BY and HAVING. (Science, Commerce, Arts, Engineering all appear more than once in the full dataset of 9 records, if we count the original 6 + the 3 added to the practice table.)",
+      "code": "SELECT department, COUNT(*) AS total_students\nFROM students\nGROUP BY department\nHAVING COUNT(*) > 1;"
+  },
+  "ExpOutput": {
+      "head1": "department",
+      "head2": "average_marks",
+      "person": [
+          {
+              "id": "Commerce",
+              "username": "89"
+          },
+          {
+              "id": "Science",
+              "username": "88.0"
+          },
+          {
+              "id": "Arts",
+              "username": "79.5"
+          },
+          {
+              "id": "Engineering",
+              "username": "87.5"
+          }
+      ]
+  }
+}

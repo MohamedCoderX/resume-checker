@@ -1,0 +1,162 @@
+{
+  "title": "Learn SQL with Step-by-Step Visual Execution",
+  "subtitle1": "Master SQL LIMIT.",
+  "subtitle2": "Learn how to return only the required number of rows.",
+  "cardhead": "The Problem",
+  "cardcontent": "Ananya wants to show only the top 3 highest-scoring students. She remembers SQL has a LIMIT keyword to restrict the number of rows returned!",
+  "content1": "Input Dataset",
+  "content2": "We will use the student table:",
+  "content3": "Table: Students",
+  "codeComQuery": "-- 1 See all students\nSELECT * FROM students;\n\n-- 2 Top 3 students\nSELECT name, marks FROM students ORDER BY marks DESC LIMIT 3;\n\n-- 3 Bottom 2 students\nSELECT name, marks FROM students ORDER BY marks ASC LIMIT 2;\n\n-- 4 Skip first 2 and show next 3\nSELECT name, marks FROM students ORDER BY marks DESC LIMIT 3 OFFSET 2;",
+  "codeComQuery1": "SELECT * FROM EMPLOYEE ; \n \n\n",
+  "card2head": "SQL Concept Behind LIMIT",
+  "card2content": "LIMIT helps you control how many rows you want to display. Instead of showing the entire table",
+  "table": {
+      "head1": "student_id",
+      "head2": "name",
+      "head3": "department",
+      "head4": "marks",
+      "person": [
+          { "id": "1", "username": "Rahul", "loyaltier": "Science", "booktime": "85" },
+          { "id": "2", "username": "Priya", "loyaltier": "Commerce", "booktime": "90" },
+          { "id": "3", "username": "Kiran", "loyaltier": "Arts", "booktime": "78" },
+          { "id": "4", "username": "Sneha", "loyaltier": "Science", "booktime": "92" },
+          { "id": "5", "username": "Ramesh", "loyaltier": "Commerce", "booktime": "88" },
+          { "id": "6", "username": "Neha", "loyaltier": "Arts", "booktime": "81" }
+      ]
+  },
+  "table1": {
+      "head1": "name",
+      "head2": "marks",
+      "icons": "icon1",
+      "title": "Top 3 Highest Scorers",
+      "code": "SELECT name, marks FROM students ORDER BY marks DESC LIMIT 3;",
+      "output": "output",
+      "person": [
+          { "id": "Sneha", "username": "92" },
+          { "id": "Priya", "username": "90" },
+          { "id": "Ramesh", "username": "88" }
+      ]
+  },
+  "table2": {
+      "head1": "name",
+      "head2": "marks",
+      "icons": "icon2",
+      "word": "Displays the lowest-scoring students by limiting the output.",
+      "title": "Bottom 2 Lowest Scorers",
+      "code": "SELECT name, marks FROM students ORDER BY marks ASC LIMIT 2;",
+      "output": "output",
+      "person": [
+          { "id": "Kiran", "username": "78" },
+          { "id": "Neha", "username": "81" }
+      ]
+  },
+  "table3": {
+      "head1": "name",
+      "head2": "marks",
+      "icons": "icon3",
+      "word": "Skips top results and retrieves the next set using LIMIT with OFFSET. The first two highest (Sneha: 92, Priya: 90) are skipped.",
+      "title": "Students Ranked 3 to 5",
+      "code": "SELECT name, marks FROM students ORDER BY marks DESC LIMIT 3 OFFSET 2;",
+      "output": "output",
+      "person": [
+          { "id": "Ramesh", "username": "88" },
+          { "id": "Rahul", "username": "85" },
+          { "id": "Neha", "username": "81" }
+      ]
+  },
+  "table4": {
+      "head1": "name",
+      "head2": "department",
+      "head3": "marks",
+      "icons": "icon4",
+      "title": "Top 1 Student in Each Department",
+      "word": "Finds the highest scorer in every department using a correlated subquery (Max per Group).",
+      "code": "SELECT name, department, marks\nFROM students s\nWHERE marks = (\n  SELECT MAX(marks)\n  FROM students\n  WHERE department = s.department\n)\nORDER BY department ASC;",
+      "output": "output",
+      "person": [
+          { "id": "Kiran", "username": "Arts", "loyaltier": "78" },
+          { "id": "Priya", "username": "Commerce", "loyaltier": "90" },
+          { "id": "Sneha", "username": "Science", "loyaltier": "92" }
+      ]
+  },
+  "multicont": [
+      {
+          "id": "1",
+          "word1": "Get all student records sorted by marks DESC",
+          "word2": "Skip the top 2 students using OFFSET 2",
+          "word3": "Limit the result set to the next 2 students (ranks 3 and 4) using LIMIT 2",
+          "word4": "Show the name and marks columns only",
+          "word5": "SQL example starting with: \n SELECT name, marks…"
+      }
+  ],
+  "Lasttable": {
+      "head1": "ID",
+      "head2": "Name",
+      "head3": "Department",
+      "head4": "Position",
+      "head5": "Salary",
+      "person": [
+          {
+              "id": "1",
+              "username": "Siva",
+              "loyaltier": "Engineering",
+              "booktime": "Software Engineer",
+              "class": "80000"
+          },
+          {
+              "id": "2",
+              "username": "Kaniga",
+              "loyaltier": "Marketing",
+              "booktime": "Marketing Manager",
+              "class": "95000"
+          },
+          {
+              "id": "3",
+              "username": "Mathumitha",
+              "loyaltier": "Engineering",
+              "booktime": "UI/UX Designer",
+              "class": "70000"
+          },
+          {
+              "id": "4",
+              "username": "Priya",
+              "loyaltier": "Engineering",
+              "booktime": "Senior Engineer",
+              "class": "110000"
+          },
+          {
+              "id": "5",
+              "username": "Arjun",
+              "loyaltier": "Sales",
+              "booktime": "Sales Representative",
+              "class": "60000"
+          },
+          {
+              "id": "6",
+              "username": "Tamil",
+              "loyaltier": "HR",
+              "booktime": "HR Specialist",
+              "class": "90000"
+          }
+      ]
+  },
+  "ExpOutput": {
+      "head1": "department",
+      "head2": "average_marks",
+      "person": [
+          {
+              "id": "Commerce",
+              "username": "89"
+          },
+          {
+              "id": "Science",
+              "username": "88.5"
+          },
+          {
+              "id": "Arts",
+              "username": "79.5"
+          }
+      ]
+  }    
+}

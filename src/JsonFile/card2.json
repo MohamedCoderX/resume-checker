@@ -1,0 +1,264 @@
+{
+    "title": "Learn SQL with Step-by-Step Visual Execution",
+    "subtitle1": "Master SQL sorting with ORDER BY.",
+    "subtitle2": "Learn how to arrange data ascending or descending.",
+    "cardhead": "The Problem",
+    "cardcontent": "Ananya wants to identify the topper and lowest scorer in the class. To do that, she needs to sort the students by marks. She remembers SQL has ORDER BY to arrange the data! Let's see how Ananya learns to use it!",
+    "content1": "Input Datasets",
+    "content2": "Here are the tables we'll be working with:",
+    "content3": "Table: Students",
+    "codeComQuery": "-- 1 View all students\nSELECT * FROM students;\n\n-- 2 Sort by marks (ascending)\nSELECT name, department, marks FROM students ORDER BY marks ASC;\n\n-- 3 Sort by marks (descending - topper first)\nSELECT name, department, marks FROM students ORDER BY marks DESC;\n\n-- 4 Sort by department then marks\nSELECT name, department, marks FROM students ORDER BY department ASC, marks DESC;",
+    "codeComQuery1": "SELECT * FROM EMPLOYEE ; \n \n",
+    "table": {
+        "head1": "student_id",
+        "head2": "name",
+        "head3": "department",
+        "head4": "marks",
+        "person": [
+            {
+                "id": "1",
+                "username": "Rahul",
+                "loyaltier": "Science",
+                "booktime": "85"
+            },
+            {
+                "id": "2",
+                "username": "Priya",
+                "loyaltier": "Commerce",
+                "booktime": "90"
+            },
+            {
+                "id": "3",
+                "username": "Kiran",
+                "loyaltier": "Arts",
+                "booktime": "78"
+            },
+            {
+                "id": "4",
+                "username": "Sneha",
+                "loyaltier": "Science",
+                "booktime": "92"
+            },
+            {
+                "id": "5",
+                "username": "Ramesh",
+                "loyaltier": "Commerce",
+                "booktime": "88"
+            },
+            {
+                "id": "6",
+                "username": "Neha",
+                "loyaltier": "Arts",
+                "booktime": "81"
+            }
+        ]
+    },
+    "card2head": "Step by Step Solution",
+    "card2content": "We sort data using ORDER BY to arrange rows logically.",
+    "table1": {
+        "head1": "student_id",
+        "head2": "name",
+        "head3": "department",
+        "head4": "marks",
+        "icons": "icon1",
+        "title": "View the Raw Data",
+        "code": "SELECT * FROM students;",
+        "output": "output",
+        "person": [
+            {
+                "id": "1",
+                "username": "Rahul",
+                "loyaltier": "Science",
+                "booktime": "85"
+            },
+            {
+                "id": "2",
+                "username": "Priya",
+                "loyaltier": "Commerce",
+                "booktime": "90"
+            },
+            {
+                "id": "3",
+                "username": "Kiran",
+                "loyaltier": "Arts",
+                "booktime": "78"
+            },
+            {
+                "id": "4",
+                "username": "Sneha",
+                "loyaltier": "Science",
+                "booktime": "92"
+            },
+            {
+                "id": "5",
+                "username": "Ramesh",
+                "loyaltier": "Commerce",
+                "booktime": "88"
+            },
+            {
+                "id": "6",
+                "username": "Neha",
+                "loyaltier": "Arts",
+                "booktime": "81"
+            }
+        ]
+    },
+    "table2": {
+        "head1": "name",
+        "head2": "marks",
+        "icons": "icon2",
+        "title": "Sort by Marks Ascending",
+        "word": "Lowest scorer first. This requires `ORDER BY marks ASC`.",
+        "code": "SELECT name, marks FROM students ORDER BY marks ASC;",
+        "output": "output",
+        "person": [
+            {
+                "id": "Kiran",
+                "username": "78"
+            },
+            {
+                "id": "Neha",
+                "username": "81"
+            },
+            {
+                "id": "Rahul",
+                "username": "85"
+            },
+            {
+                "id": "Ramesh",
+                "username": "88"
+            },
+            {
+                "id": "Priya",
+                "username": "90"
+            },
+            {
+                "id": "Sneha",
+                "username": "92"
+            }
+        ]
+    },
+    "table3": {
+        "head1": "name",
+        "head2": "marks",
+        "icons": "icon3",
+        "title": "Sort by Marks Descending",
+        "word": "Topper first. This requires `ORDER BY marks DESC`.",
+        "code": "SELECT name, marks FROM students ORDER BY marks DESC;",
+        "output": "output",
+        "person": [
+            {
+                "id": "Sneha",
+                "username": "92"
+            },
+            {
+                "id": "Priya",
+                "username": "90"
+            },
+            {
+                "id": "Ramesh",
+                "username": "88"
+            },
+            {
+                "id": "Rahul",
+                "username": "85"
+            },
+            {
+                "id": "Neha",
+                "username": "81"
+            },
+            {
+                "id": "Kiran",
+                "username": "78"
+            }
+        ]
+    },
+    "table4": {
+        "head1": "name",
+        "head2": "department",
+        "head3": "marks",
+        "icons": "icon4",
+        "title": "Sort by Department then Marks",
+        "word": "Sorts first by department (A-Z) then by marks (highest first) within each department. This uses multi-column sorting: `ORDER BY department ASC, marks DESC`.",
+        "code": "SELECT name, department, marks FROM students ORDER BY department ASC, marks DESC;"
+    },
+    "multicont": [
+        {
+            "id": "1",
+            "word1": "Find the student with the lowest mark.",
+            "word2": "Sort students by marks in descending order.",
+            "word3": "Sort students alphabetically by department, then by marks within each department.",
+            "word4": "List all student names and their marks, ordered by marks from lowest to highest.",
+            "word5": "SQL example starting with: \n SELECT name, department, marks…."
+        }
+    ],
+    "Lasttable": {
+        "head1": "ID",
+        "head2": "Name",
+        "head3": "Department",
+        "head4": "Position",
+        "head5": "Salary",
+        "person": [
+            {
+                "id": "1",
+                "username": "Siva",
+                "loyaltier": "Engineering",
+                "booktime": "Software Engineer",
+                "class": "80000"
+            },
+            {
+                "id": "2",
+                "username": "Kaniga",
+                "loyaltier": "Marketing",
+                "booktime": "Marketing Manager",
+                "class": "95000"
+            },
+            {
+                "id": "3",
+                "username": "Mathumitha",
+                "loyaltier": "Engineering",
+                "booktime": "UI/UX Designer",
+                "class": "70000"
+            },
+            {
+                "id": "4",
+                "username": "Priya",
+                "loyaltier": "Engineering",
+                "booktime": "Senior Engineer",
+                "class": "110000"
+            },
+            {
+                "id": "5",
+                "username": "Arjun",
+                "loyaltier": "Sales",
+                "booktime": "Sales Representative",
+                "class": "60000"
+            },
+            {
+                "id": "6",
+                "username": "Tamil",
+                "loyaltier": "HR",
+                "booktime": "HR Specialist",
+                "class": "90000"
+            }
+        ]
+    },
+    "ExpOutput": {
+        "head1": "department",
+        "head2": "marks",
+        "person": [
+            {
+                "id": "Kiran",
+                "username": "78"
+            },
+            {
+                "id": "Neha",
+                "username": "81"
+            },
+            {
+                "id": "Rahul",
+                "username": "85"
+            }
+        ]
+    }
+}

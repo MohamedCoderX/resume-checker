@@ -1,0 +1,20 @@
+{
+    "content":[
+        {
+            "id":1,
+            "word1":"I know SQL basics ... but freeze in live coding interviews.",
+            "word2":"Our SQL Playground gives you real interview-style problems with instant feedback."
+        },
+        {
+            "id":2,
+            "word1":"My resume gets rejected before a human sees it.",
+            "word2":"Our ATS Checker scans your resume like top tech companies do - and tells you how to fix it."
+        },
+        {
+            "id":3,
+            "word1":"I'm strong technically, but fail communication round.",
+            "word2":"Practice structured answers with our Al-powered Communication Simulator."
+        }
+    ],
+    "send":"I Try Yourself With Us"
+}

@@ -1,0 +1,116 @@
+{
+  "title": "Learn SQL with Step-by-Step Visual Execution",
+  "subtitle1": "Learn SUBQUERY in SQL.",
+  "subtitle2": "Use one query inside another to solve complex problems.",
+  "cardhead": "The Problem",
+  "cardcontent": "Ananya wants to find students who scored above the class average. She uses a SUBQUERY inside the WHERE clause to compute it!",
+  "content1": "Dataset",
+  "content2": "Students table:",
+  "content3": "Table: Students",
+  "codeComQuery": "-- Find class average\nSELECT AVG(marks) FROM students;\n\n-- Find students scoring above average\nSELECT name, marks FROM students WHERE marks > (SELECT AVG(marks) FROM students);",
+  "codeComQuery1": "SELECT * FROM EMPLOYEE ; \n \n\n",
+  "card2head": "What You Will Learn from Subqueries ",
+  "card2content": "Understand how subqueries allow one SQL query to depend on the result of another. Learn how to calculate values like averages first, then filter records dynamically using WHERE. Subqueries are processed first, and their results are used by the main outer query.",
+  "table": {
+      "head1": "student_id",
+      "head2": "name",
+      "head3": "department",
+      "head4": "marks",
+      "person": [
+          { "id": "1", "username": "Rahul", "loyaltier": "Science", "booktime": "85" },
+          { "id": "2", "username": "Priya", "loyaltier": "Commerce", "booktime": "90" },
+          { "id": "3", "username": "Kiran", "loyaltier": "Arts", "booktime": "78" },
+          { "id": "4", "username": "Sneha", "loyaltier": "Science", "booktime": "92" },
+          { "id": "5", "username": "Ramesh", "loyaltier": "Commerce", "booktime": "88" },
+          { "id": "6", "username": "Neha", "loyaltier": "Arts", "booktime": "81" }
+      ]
+  },
+  "table1": {
+      "icons": "icon1",
+      "title": "Calculated Class Average",
+      "word": "The inner query calculates the single class average mark: (85+90+78+92+88+81) / 6 = 85.67.",
+      "code": "SELECT AVG(marks) FROM students;",
+      "head1": "Class_Average",
+      "head2": "Value",
+      "person": [
+          { "id": "Class Average", "username": "85.67" }
+      ]
+  },
+  "table2": {
+      "icons": "icon2",
+      "title": "All Students with Marks",
+      "word": "Displays every student's name and marks before filtering. Used by the outer query for comparison.",
+      "code": "SELECT name, marks FROM students;",
+      "head1": "name",
+      "head2": "marks",
+      "person": [
+          { "id": "Rahul", "username": "85" },
+          { "id": "Priya", "username": "90" },
+          { "id": "Kiran", "username": "78" },
+          { "id": "Sneha", "username": "92" },
+          { "id": "Ramesh", "username": "88" },
+          { "id": "Neha", "username": "81" }
+      ]
+  },
+  "table3": {
+      "head1": "name",
+      "head2": "mark",
+      "icons": "icon3",
+      "title": "Students Above Average",
+      "code": "SELECT name, marks FROM students WHERE marks > (SELECT AVG(marks) FROM students);",
+      "word": "The outer query filters where `marks > 85.67` (the result of the subquery).",
+      "person": [
+          { "id": "Priya", "username": "90" },
+          { "id": "Sneha", "username": "92" },
+          { "id": "Ramesh", "username": "88" }
+      ]
+  },
+  "table4": {
+      "icons": "icon4",
+      "title": "Students Below or Equal to Average",
+      "word": "Shows students whose marks are less than or equal to the class average (`<= 85.67`).",
+      "code": "SELECT name, marks FROM students WHERE marks <= (SELECT AVG(marks) FROM students);",
+      "head1": "name",
+      "head2": "marks",
+      "person": [
+          { "id": "Rahul", "username": "85" },
+          { "id": "Kiran", "username": "78" },
+          { "id": "Neha", "username": "81" }
+      ]
+  },
+  "multicont": [
+      {
+          "id": "1",
+          "word1": "The subquery is executed first.",
+          "word2": "The subquery result is a single value (scalar subquery).",
+          "word3": "The main query uses the subquery result in its WHERE clause.",
+          "word4": "Subqueries can also be used in the FROM or SELECT clauses.",
+          "word5": "SQL example starting with: \n SELECT name, marks…"
+      }
+  ],
+  "Lasttable": {
+      "head1": "ID",
+      "head2": "Name",
+      "head3": "Department",
+      "head4": "Position",
+      "head5": "Salary",
+      "person": [
+          { "id": "1", "username": "Siva", "loyaltier": "Engineering", "booktime": "Software Engineer", "class": "80000" },
+          { "id": "2", "username": "Kaniga", "loyaltier": "Marketing", "booktime": "Marketing Manager", "class": "95000" },
+          { "id": "3", "username": "Mathumitha", "loyaltier": "Engineering", "booktime": "UI/UX Designer", "class": "70000" },
+          { "id": "4", "username": "Priya", "loyaltier": "Engineering", "booktime": "Senior Engineer", "class": "110000" },
+          { "id": "5", "username": "Arjun", "loyaltier": "Sales", "booktime": "Sales Representative", "class": "60000" },
+          { "id": "6", "username": "Tamil", "loyaltier": "HR", "booktime": "HR Specialist", "class": "90000" }
+      ]
+  },
+  "ExpOutput": {
+      "head1": "employee_name",
+      "head2": "employee_salary",
+      "person": [
+          { "id": "Priya", "username": "110000" },
+          { "id": "Kaniga", "username": "95000" },
+          { "id": "Tamil", "username": "90000" }
+      ]
+  }       
+  
+}

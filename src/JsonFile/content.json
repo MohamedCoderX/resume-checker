@@ -1,0 +1,269 @@
+{
+    "title": "Learn SQL with Step-by-Step Visual Execution",
+    "subtitle1": "Master the fundamentals of SQL — from basics to advanced concepts.",
+    "subtitle2": "Learn interactively, visualize data, and grow your real-world skills step by step.",
+    "cardhead": "The Problem",
+    "cardcontent": "A weekend train has limited Premium seats. Some Premium passengers may no-show. Your task: upgrade Standard passengers to Premium only if spare Premium seats exist after subtracting expected no-shows. Prioritize by higher loyalty_tier first, then earlier booking_time. Output each passenger's final_class and a clear reason (\"auto-upgrade\", \"kept-standard\", \"already-premium\").",
+    "card2head": "Detective in Crime Scene - SQL Clues",
+    "card2content": "To solve this mystery you need to know these SQL concepts:",
+    "content1": "Input Datasets",
+    "content2": "Here are the tables we'll be working with:",
+    "content3": "Table:Bookings",
+    "table": {
+        "head1": "user_id",
+        "head2": "user_name",
+        "head3": "loyalty_tier",
+        "head4": "boooking_time",
+        "head5": "class",
+        "person": [
+            {
+                "id": "1",
+                "username": " Priya ",
+                "loyaltier": "3",
+                "booktime": " 2025-10-24 08:00:00",
+                "class": "premium"
+            },
+            {
+                "id": "2",
+                "username": "Rahul ",
+                "loyaltier": "2",
+                "booktime": "2025-10-24 09:00:00",
+                "class": "premium"
+            },
+            {
+                "id": "3",
+                "username": "Meera ",
+                "loyaltier": "1",
+                "booktime": "2025-10-24 10:00:00",
+                "class": "premium"
+            },
+            {
+                "id": "4",
+                "username": "Arun ",
+                "loyaltier": "3",
+                "booktime": "2025-10-24 07:00:00",
+                "class": "Standard"
+            },
+            {
+                "id": "5",
+                "username": "Bhav ",
+                "loyaltier": "2",
+                "booktime": "2025-10-24 08:00:00",
+                "class": "Standard"
+            },
+            {
+                "id": "6",
+                "username": "Chirag ",
+                "loyaltier": "2",
+                "booktime": "2025-10-24 08:00:00",
+                "class": "Standard"
+            },
+            {
+                "id": "7",
+                "username": "Divya ",
+                "loyaltier": "2",
+                "booktime": "2025-10-24 08:00:00",
+                "class": "Standard"
+            }
+        ]
+    },
+    "pretotal": "5",
+    "preexpecte": "1",
+    "contcard1": [
+        {
+            "ïd": "1",
+            "icons": "icon",
+            "title": "Compute usable Premium spare seats",
+            "subtitle": "SQL Query",
+            "code": "SELECT premium_total - premium_expected_noshow \n   - (SELECT COUNT(*) FROM bookings WHERE class='Premium') AS spare \n FROM train_capacity;",
+            "multicont": [
+                {
+                    "id": "1",
+                    "word1": "We start with premium_total seats.",
+                    "word2": "Subtract premium_expected_noshow to be conservative (reserve for those likely absent).",
+                    "word3": "Subtract currently booked Premium to know how many we can upgrade into.",
+                    "word4": "The result spare is the maximum upgrades available.",
+                    "word5": "If negative, treat as zero spare in the final step."
+                }
+            ],
+            "subtitle2": "Output Visulaization",
+            "tablebody": "spare",
+            "table": "1",
+            "table2": {
+                "tablebox1": "Table",
+                "tablebox2": "Chart",
+                "head1": "spare",
+                "person": [
+                    {
+                        "id": "1"
+                    }
+                ]
+            }
+        },
+        {
+            "ïd": "2",
+            "icons": "icon1",
+            "title": "Rank Standard passengers by priority",
+            "subtitle": "SQL Query",
+            "code": "SELECT user_id, user_name, loyalty_tier, booking_time,\n   ROW_NUMBER() OVER (ORDER BY loyalty_tier DESC, booking_time ASC) AS rn \nFROM bookings\nWHERE class='Standard'\nORDER BY rn;",
+            "multicont": [
+                {
+                    "id": "1",
+                    "word1": "We need a fair order to pick upgrades.",
+                    "word2": "ROW_NUMBER() gives a unique rank per Standard passenger.",
+                    "word3": "Sort by higher loyalty_tier first, then earlier booking_time.",
+                    "word4": "rn=1 is the first to receive an upgrade if spare exists.",
+                    "word5": "This is simple and interview-friendly."
+                }
+            ],
+            "subtitle2": "Output Visulaization",
+            "table2": {
+                "tablebox1": "Table",
+                "tablebox2": "Chart",
+                "head1": "user_id",
+                "head2": "user_name",
+                "head3": "loyalty_tier",
+                "head4": "boooking_time",
+                "head5": "rn",
+                "person": [
+                    {
+                        "id": "u_s1",
+                        "username": " Arun ",
+                        "loyaltier": "3",
+                        "booktime": " 2025-10-24 07:00:00",
+                        "class": "1"
+                    },
+                    {
+                        "id": "u_s2",
+                        "username": "Bhav ",
+                        "loyaltier": "2",
+                        "booktime": "2025-10-24 08:00:00",
+                        "class": "2"
+                    },
+                    {
+                        "id": "u_s3",
+                        "username": "Divya ",
+                        "loyaltier": "2",
+                        "booktime": "2025-10-24 08:00:00",
+                        "class": "3"
+                    },
+                    {
+                        "id": "u_s4",
+                        "username": "Chirag ",
+                        "loyaltier": "2",
+                        "booktime": "2025-10-24 08:00:00",
+                        "class": "4"
+                    }
+                ]
+            }
+        },
+        {
+            "ïd": "3",
+            "icons": "icon2",
+            "title": "Assign final class & reason",
+            "subtitle": "SQL Query",
+            "code": "WITH cap AS ( \n   SELECT premium_total - premium_expected_noshow \n       -(SELECT COUNT(*) FROM bookings WHERE class='Premium') AS spare\n FROM train_capacity \n ), \n cands AS (\n     SELECT b.user_id, ROW_NUMBER() OVER (ORDER BY loyalty_tier DESC, booking_time ASC) AS rn \n     FROM bookings b WHERE class='Standard'\n ) \n  SELECT b.user_name,\n        CASE WHEN b.class='Premium'\n               OR (c.rn IS NOT NULL AND c.rn <= GREATEST(0, cap.spare)) \n               THEN 'Premium' ELSE 'Standard' END AS final_class,\n         CASE WHEN b.class='Premium' THEN 'already-premium' \n               WHEN (c.rn IS NOT NULL AND c.rn <= GREATEST(0, cap.spare)) THEN 'auto-upgrade' \n               ELSE 'kept-standard' END AS reason \n FROM bookings b \n  CROSS JOIN cap \n LEFT JOIN cands c ON c.user_id = b.user_id \n ORDER BY (final_class='Premium') DESC, b.user_name;",
+            "multicont": [
+                {
+                    "id": "1",
+                    "word1": "cap computes usable spare seats once; we bring it into the query with a CROSS JOIN, so no scalar subqueries inside CASE.",
+                    "word2": "cands ranks only Standard passengers using ROW_NUMBER() by higher loyalty_tier, then earlier booking_time.",
+                    "word3": "Upgrade rule is simple: if rn <= GREATEST(0, cap.spare), passenger gets Premium -> reason auto-upgrade.",
+                    "word4": "Already Premium stays Premium with reason already-premium; everyone else is kept-standard.",
+                    "word5": "Ordering shows Premium-first for easy reading"
+                }
+            ],
+            "subtitle2": "Output Visulaization",
+            "table2": {
+                "tablebox1": "Table",
+                "tablebox2": "Chart",
+                "head1": "user_name",
+                "head2": "final_class",
+                "head3": "reason",
+                "person": [
+                    {
+                        "id": "Priya",
+                        "username": "premium",
+                        "loyaltier": "auto-upgrade"
+                    },
+                    {
+                        "id": "Rahul",
+                        "username": "premium",
+                        "loyaltier": "already-premium"
+                    },
+                    {
+                        "id": "Meera",
+                        "username": "premium",
+                        "loyaltier": "already-premium"
+                    },
+                    {
+                        "id": "Arun",
+                        "username": "Standard",
+                        "loyaltier": "already-premium"
+                    },
+                    {
+                        "id": "Bhav",
+                        "username": "Standard",
+                        "loyaltier": "kept-standard"
+                    },
+                    {
+                        "id": "Chirag",
+                        "username": "Standard",
+                        "loyaltier": "kept-standard"
+                    },
+                    {
+                        "id": "Divya",
+                        "username": "Standard",
+                        "loyaltier": "kept-standard"
+                    }
+                ]
+            }
+        }
+    ],
+    "codeComQuery": "WITH cap AS (\n  SELECT premium_total - premium_expected_noshow\n      -(SELECT COUNT(*) FROM bookings WHERE class='Premium') AS spare\n  FROM train_capacity\n),\ncands AS (\n  SELECT b.user_id, b.user_name, b.class, b.loyalty_tier, b.booking_time,\n      ROW_NUMBER() OVER (ORDER BY loyalty_tier DESC, booking_time ASC) AS rn\n  FROM bookings b WHERE class='Standard'\n)\nSELECT b.user_name,\n      CASE WHEN b.class='Premium'\n          OR (c.rn IS NOT NULL AND c.rn <= GREATEST(0, cap.spare))\n          THEN 'Premium' ELSE 'Standard' END AS final_class,\n      CASE WHEN b.class='Premium' THEN 'already-premium'\n          WHEN (c.rn IS NOT NULL AND c.rn <= GREATEST(0, cap.spare)) THEN 'auto-upgrade'\n          ELSE 'kept-standard' END AS reason\nFROM bookings b\nCROSS JOIN cap\nLEFT JOIN cands c ON c.user_id = b.user_id\nORDER BY (b.class='Premium'\n          OR (c.rn IS NOT NULL AND c.rn <= GREATEST(0, cap.spare))) DESC,\n          b.user_name;",
+    "Lasttable": {
+        "tablebox1": "Table",
+        "tablebox2": "Chart",
+        "tablebox3": "Expected Output",
+        "head1": "user_name",
+        "head2": "final_class",
+        "head3": "reason",
+        "person": [
+            {
+                "id": "Priya",
+                "username": "premium",
+                "loyaltier": "auto-upgrade"
+            },
+            {
+                "id": "Rahul",
+                "username": "premium",
+                "loyaltier": "already-premium"
+            },
+            {
+                "id": "Meera",
+                "username": "premium",
+                "loyaltier": "already-premium"
+            },
+            {
+                "id": "Arun",
+                "username": "Standard",
+                "loyaltier": "already-premium"
+            },
+            {
+                "id": "Bhav",
+                "username": "Standard",
+                "loyaltier": "kept-standard"
+            },
+            {
+                "id": "Chirag",
+                "username": "Standard",
+                "loyaltier": "kept-standard"
+            },
+            {
+                "id": "Divya",
+                "username": "Standard",
+                "loyaltier": "kept-standard"
+            }
+        ]
+    }
+}

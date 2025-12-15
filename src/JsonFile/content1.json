@@ -1,0 +1,263 @@
+
+{
+    "title": "Learn SQL with Step-by-Step Visual Execution",
+    "subtitle1": "Master the fundamentals of SQL — from basics to advanced concepts.",
+    "subtitle2": "Learn interactively, visualize data, and grow your real-world skills step by step.",
+    "cardhead": "The Problem",
+    "cardcontent": "Ananya works as a junior data analyst at EduTrack University. She’s been assigned to prepare a report card summary from the students table. But she noticed that some students are from the same department, and her mentor asked her to calculate average marks by department instead of listing every student. She remembered hearing about a magical SQL word — GROUP BY — that can help summarize data. Let’s see how Ananya learns to use it! ",
+    "content1": "Input Datasets",
+    "content2": "Here are the tables we'll be working with:",
+    "content3": "Table:Bookings",
+    "codeComQuery":"-- 1️ View all student records \n SELECT * \n FROM students; \n \n-- 2️ Average marks by department \n SELECT  \n     department,  \n     AVG(marks) AS average_marks \n FROM students \n GROUP BY department; \n \n-- 3️ Average marks by department, sorted by performance (highest first) \n SELECT  \n     department,  \n     AVG(marks) AS average_marks \n FROM students \n GROUP BY department \n ORDER BY average_marks DESC; \n \n-- 4️ Create a summary table with department averages \n -- ⚠️ This will create a new table with the aggregated results \n CREATE TABLE department_summary AS \n SELECT  \n     department,  \n     AVG(marks) AS average_marks \n FROM students \n GROUP BY department; \n ",
+    "codeComQuery1":"SELECT * FROM  EMPLOYEE ; \n \n\n",
+    "table": {
+        "head1": "student_id",
+        "head2": "name",
+        "head3": "department",
+        "head4": "marks",
+        
+        "person": [
+            {
+                "id": "1",
+                "username": " Rahul ",
+                "loyaltier": "Science",
+                "booktime": " 85"
+                
+            },
+            {
+                "id": "2",
+                "username": "Priya ",
+                "loyaltier": "Commerce",
+                "booktime": "90"
+            },
+            {
+                "id": "3",
+                "username": "Kiran ",
+                "loyaltier": "Arts",
+                "booktime": "78"
+            },
+            {
+                "id": "4",
+                "username": "Sneha ",
+                "loyaltier": "Science",
+                "booktime": "92"
+            },
+            {
+                "id": "5",
+                "username": "Ramesh ",
+                "loyaltier": "Commerce",
+                "booktime": "88"
+            },
+            {
+                "id": "6",
+                "username": "Neha ",
+                "loyaltier": "Arts",
+                "booktime": "81"
+            }
+        ]
+    },
+
+     "card2head": "Step by Step Solution",
+    "card2content": "Before giving the answer, the code will be examined slowly and clearly, covering every part in a structured sequence.",
+
+"table1": {
+        "head1": "student_id",
+        "head2": "name",
+        "head3": "department",
+        "head4": "marks",
+
+        "icons":"icon1",
+        "title":"View the Raw Data",
+        "code":"SELECT*FROM students;",
+        "output":"output",
+        
+        "person": [
+            {
+                "id": "1",
+                "username": " Rahul ",
+                "loyaltier": "Science",
+                "booktime": " 85"
+                
+            },
+            {
+                "id": "2",
+                "username": "Priya ",
+                "loyaltier": "Commerce",
+                "booktime": "90"
+            },
+            {
+                "id": "3",
+                "username": "Kiran ",
+                "loyaltier": "Arts",
+                "booktime": "78"
+            },
+            {
+                "id": "4",
+                "username": "Sneha ",
+                "loyaltier": "Science",
+                "booktime": "92"
+            },
+            {
+                "id": "5",
+                "username": "Ramesh ",
+                "loyaltier": "Commerce",
+                "booktime": "88"
+            },
+            {
+                "id": "6",
+                "username": "Neha ",
+                "loyaltier": "Arts",
+                "booktime": "81"
+            }
+        ]
+    },
+
+"table2": {
+        "head1": "department",
+        "head2": "average_marks",
+        
+        "icons":"icon2",
+        "title":"Find Average Marks by Department",
+        "word":"Ananya wants to know how each department performs on average.  She uses GROUP BY with the AVG() function.",
+        "code":"SELECT department, AVG(marks) AS average_marks FROM students GROUP BY department;",
+        "output":"output",
+        
+        "person": [
+            {
+                "id": "Science",
+                "username": " 88.5 "
+            },
+            {
+                "id": "Commerce",
+                "username": "89 "
+            },
+            {
+                "id": "Arts",
+                "username": "79.5 "
+            }
+        ]
+    },
+
+"table3": {
+        "head1": "department",
+        "head2": "average_marks",
+        "icons":"icon3",
+        "title":"Sort the Results (to find top-performing  department)",
+        "word":"Now Ananya can clearly see which department is performing best!",
+        "code":"SELECT department, AVG(marks) AS average_marks FROM students GROUP BY department ORDER BY average_marks DESC;",
+        "output":"output",
+        
+        "person": [
+            {
+                "id": "Science",
+                "username": " 89 "
+            },
+            {
+                "id": "Commerce",
+                "username": "88.5 "
+            },
+            {
+                "id": "Arts",
+                "username": "79.5 "
+            }
+        ]
+    }
+    ,
+
+"table4": {
+    
+        "icons":"icon4",
+        "title":"Create a Summary Table (Optional)",
+        "word":"This creates a new table with summarized department performance.",
+        "code":"CREATE TABLE department_summary AS SELECT department, AVG(marks) AS average_marks FROM students GROUP BY department;"
+    },
+    
+
+    "multicont": [
+        {
+            "id": "1",
+            "word1": "Get all student records",
+            "word2": "Filter students whose marks are ≥ 85",
+            "word3": "Group students by department and sort by highest performance",
+            "word4": "Find the average marks for each department",
+            "word5": "SQL example starting with: \n SELECT department, AVG(marks) AS average_marks…."
+        }
+    ],
+
+
+    "Lasttable": {
+        "head1": "ID",
+        "head2": "Name",
+        "head3": "Department",
+        "head4": "Position",
+        "head5": "Salary",
+       
+        "person": [
+            {
+                "id": "1",
+                "username": "Siva",
+                "loyaltier": "Engineering",
+                "booktime": "Software Engineer",
+                "class":"80000"
+            },
+            {
+                "id": "2",
+                "username": "Kaniga",
+                "loyaltier": "Marketing",
+                "booktime": "Marketing Manager",
+                "class":"95000"
+            },
+            {
+                "id": "3",
+                "username": "Mathumitha",
+                "loyaltier": "Engineering",
+                "booktime": "UI/UX Designer",
+                "class":"70000"
+            },
+            {
+                "id": "4",
+                "username": "Priya",
+                "loyaltier": "Engineering",
+                "booktime": "Senior Engineer",
+                "class":"110000"
+            },
+            {
+                "id": "5",
+                "username": "Arjun",
+                "loyaltier": "Sales",
+                "booktime": "Sales Representative",
+                "class":"60000"
+            },
+            {
+                "id": "6",
+                "username": "Tamil",
+                "loyaltier": "HR",
+                "booktime": "HR Specialist",
+                "class":"90000"
+            }
+        ]
+    },
+
+    "ExpOutput":{
+        "head1":"department",
+        "head2":"average_marks",
+
+        "person":[
+            {
+                "id": "Commerce",
+                "username": "89"
+                
+            },
+            {
+                "id": "Science",
+                "username": "88.5"
+            },
+            {
+                "id": "Arts",
+                "username": "79.5"
+            }
+        ]
+    }
+ 
+}
+

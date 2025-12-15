@@ -1,0 +1,130 @@
+{
+  "title": "Learn SQL with Step-by-Step Visual Execution",
+  "subtitle1": "Learn CASE WHEN in SQL.",
+  "subtitle2": "Create conditional logic inside queries.",
+  "cardhead": "The Problem",
+  "cardcontent": "Ananya wants to label student marks into categories: Excellent, Good, or Average. She uses CASE WHEN for conditional classification!",
+  "content1": "Dataset",
+  "content2": "Students table:",
+  "content3": "Table: Students",
+  "codeComQuery": "-- Classify each student\nSELECT name, marks,\nCASE\n  WHEN marks >= 90 THEN 'Excellent'\n  WHEN marks >= 80 THEN 'Good'\n  ELSE 'Average'\nEND AS performance\nFROM students;",
+  "codeComQuery1": "SELECT * FROM EMPLOYEE ; \n \n\n",
+  "card2head": "What You Will Learn with CASE WHEN ",
+  "card2content": "Understand how CASE WHEN adds conditional logic inside SQL queries. Learn to classify data into meaningful categories, replace complex IF conditions, and generate readable labels directly from query results. The CASE expression evaluates conditions sequentially, returning the value from the first matching WHEN condition.",
+  "table": {
+      "head1": "student_id",
+      "head2": "name",
+      "head3": "department",
+      "head4": "marks",
+      "person": [
+          { "id": "1", "username": "Rahul", "loyaltier": "Science", "booktime": "85" },
+          { "id": "2", "username": "Priya", "loyaltier": "Commerce", "booktime": "90" },
+          { "id": "3", "username": "Kiran", "loyaltier": "Arts", "booktime": "78" },
+          { "id": "4", "username": "Sneha", "loyaltier": "Science", "booktime": "92" },
+          { "id": "5", "username": "Ramesh", "loyaltier": "Commerce", "booktime": "88" },
+          { "id": "6", "username": "Neha", "loyaltier": "Arts", "booktime": "81" }
+      ]
+  },
+  "table1": {
+      "icons": "icon1",
+      "title": "Student Marks Overview",
+      "word": "Displays each student's raw marks before applying any conditions. This helps you understand the base data used for classification.",
+      "code": "SELECT name, marks FROM students;",
+      "head1": "name",
+      "head2": "marks",
+      "person": [
+          { "id": "Rahul", "username": "85" },
+          { "id": "Priya", "username": "90" },
+          { "id": "Kiran", "username": "78" },
+          { "id": "Sneha", "username": "92" },
+          { "id": "Ramesh", "username": "88" },
+          { "id": "Neha", "username": "81" }
+      ]
+  },
+  "table2": {
+      "icons": "icon2",
+      "title": "Marks with Performance Labels",
+      "word": "Uses CASE WHEN to assign performance categories based on student marks. This converts numeric scores into meaningful text labels.",
+      "code": "SELECT name, CASE WHEN marks >= 90 THEN 'Excellent' WHEN marks >= 80 THEN 'Good' ELSE 'Average' END AS performance FROM students;",
+      "head1": "name",
+      "head2": "performance",
+      "person": [
+          { "id": "Rahul", "username": "Good" },
+          { "id": "Priya", "username": "Excellent" },
+          { "id": "Kiran", "username": "Average" },
+          { "id": "Sneha", "username": "Excellent" },
+          { "id": "Ramesh", "username": "Good" },
+          { "id": "Neha", "username": "Good" }
+      ]
+  },
+  "table3": {
+      "head1": "name",
+      "head2": "Remarks",
+      "icons": "icon3",
+      "title": "Performance Classification (Full Output)",
+      "word": "Uses CASE WHEN to label each student’s performance based on their marks.",
+      "code": "SELECT name, marks, CASE WHEN marks >= 90 THEN 'Excellent' WHEN marks >= 80 THEN 'Good' ELSE 'Average' END AS performance FROM students;",
+      "person": [
+          { "id": "Rahul (85)", "username": "Good" },
+          { "id": "Priya (90)", "username": "Excellent" },
+          { "id": "Kiran (78)", "username": "Average" },
+          { "id": "Sneha (92)", "username": "Excellent" },
+          { "id": "Ramesh (88)", "username": "Good" },
+          { "id": "Neha (81)", "username": "Good" }
+      ]
+  },
+  "table4": {
+      "icons": "icon4",
+      "title": "Department-wise Performance Status",
+      "word": "Demonstrates how CASE WHEN can be combined with multiple columns to generate richer insights based on conditions.",
+      "code": "SELECT name, department, CASE WHEN marks >= 90 THEN 'Top Performer' WHEN marks >= 80 THEN 'Consistent Performer' ELSE 'Needs Improvement' END AS status FROM students;",
+      "head1": "name",
+      "head2": "status",
+      "person": [
+          { "id": "Rahul", "username": "Consistent Performer" },
+          { "id": "Priya", "username": "Top Performer" },
+          { "id": "Kiran", "username": "Needs Improvement" },
+          { "id": "Sneha", "username": "Top Performer" },
+          { "id": "Ramesh", "username": "Consistent Performer" },
+          { "id": "Neha", "username": "Consistent Performer" }
+      ]
+  },
+  "multicont": [
+      {
+          "id": "1",
+          "word1": "The CASE expression must always end with END.",
+          "word2": "The ELSE part is optional, but highly recommended for comprehensive coverage.",
+          "word3": "Conditions are evaluated in the order they are written (top-down).",
+          "word4": "CASE WHEN can be used in SELECT, ORDER BY, and WHERE clauses.",
+          "word5": "SQL example starting with: \n SELECT Name, CASE WHEN Salary > 100000…"
+      }
+  ],
+  "Lasttable": {
+      "head1": "ID",
+      "head2": "Name",
+      "head3": "Department",
+      "head4": "Position",
+      "head5": "Salary",
+      "person": [
+          { "id": "1", "username": "Siva", "loyaltier": "Engineering", "booktime": "Software Engineer", "class": "80000" },
+          { "id": "2", "username": "Kaniga", "loyaltier": "Marketing", "booktime": "Marketing Manager", "class": "95000" },
+          { "id": "3", "username": "Mathumitha", "loyaltier": "Engineering", "booktime": "UI/UX Designer", "class": "70000" },
+          { "id": "4", "username": "Priya", "loyaltier": "Engineering", "booktime": "Senior Engineer", "class": "110000" },
+          { "id": "5", "username": "Arjun", "loyaltier": "Sales", "booktime": "Sales Representative", "class": "60000" },
+          { "id": "6", "username": "Tamil", "loyaltier": "HR", "booktime": "HR Specialist", "class": "90000" }
+      ]
+  },
+  "ExpOutput": {
+      "head1": "employee_name",
+      "head2": "salary_tier",
+      "person": [
+          { "id": "Priya", "username": "High" },
+          { "id": "Kaniga", "username": "Medium" },
+          { "id": "Tamil", "username": "Medium" },
+          { "id": "Siva", "username": "Low" },
+          { "id": "Mathumitha", "username": "Low" },
+          { "id": "Arjun", "username": "Low" }
+      ]
+  }
+  
+}
