@@ -4,7 +4,7 @@ import { RiSpeakFill } from "react-icons/ri";
 import { IoPersonSharp } from "react-icons/io5";
 import { BsStars } from "react-icons/bs";
 import SQL from "../../assets/SQL.png";
-import Resume from "../../assets/Resume.png";
+import Resume from "../../assets/resume.png";
 import Overlay from "../../assets/Overlay.png";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
