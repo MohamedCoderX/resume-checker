@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { FaBookOpen, FaPlay, FaBookmark, FaCheckCircle, FaListUl } from "react-icons/fa";
 // import { useNavigate } from "react-router-dom";
 // import {  Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import json1 from "../JsonFile/content1.json";
 import json2 from "../JsonFile/card2.json";
@@ -138,7 +139,7 @@ const[tit,setit] = useState(true);
 
   const pages = Math.ceil(courses.length / postperpage);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(()=>{
     //getlocation and if location is dashboard set tit to false
