@@ -60,19 +60,28 @@ const PageNavigation = () => {
   // When clicking "Mark as Read"
   const handleMarkAsRead = () => {
     const nextPage = currentPage + 1;
-
-    if(currentPage === 4){
+  
+    if (currentPage === 4) {
       setShowLastContent(true);
     }
-
-    // Only unlock next page (not navigate)
+  
+    // Unlock next page if not unlocked
     if (nextPage <= totalPages && !unlockedPages.includes(nextPage)) {
-      setUnlockedPages(prev => [...prev, nextPage]);
+      setUnlockedPages((prev) => [...prev, nextPage]);
     }
-
-    // // Scroll to top
-    // window.scrollTo(0, 0);
+  
+    // Automatically go to next page if available
+    if (nextPage <= totalPages) {
+      setCurrentPage(nextPage);
+  
+      // Scroll to top smoothly
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
   };
+  
 
   return (
     <div className="max-w-7xl mx-auto pt-10">

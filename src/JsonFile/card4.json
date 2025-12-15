@@ -1,7 +1,7 @@
 {
   "title": "Learn SQL with Step-by-Step Visual Execution",
   "subtitle1": "Understand DISTINCT in SQL.",
-  "subtitle2": "Learn how to remove duplicates and get unique values.",
+  "subtitle2": "sql-stories-4",
   "cardhead": "The Problem",
   "cardcontent": "Ananya noticed that some departments might repeat in the students table. Her mentor asked her to find the list of unique departments. She remembers DISTINCT can remove duplicates!",
   "content1": "Input Dataset",

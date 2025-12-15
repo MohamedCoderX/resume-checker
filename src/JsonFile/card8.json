@@ -1,7 +1,7 @@
 {
   "title": "Learn SQL with Step-by-Step Visual Execution",
   "subtitle1": "Learn CASE WHEN in SQL.",
-  "subtitle2": "Create conditional logic inside queries.",
+  "subtitle2": "sql-stories-8",
   "cardhead": "The Problem",
   "cardcontent": "Ananya wants to label student marks into categories: Excellent, Good, or Average. She uses CASE WHEN for conditional classification!",
   "content1": "Dataset",

@@ -1,7 +1,7 @@
 {
   "title": "Learn SQL with Step-by-Step Visual Execution",
   "subtitle1": "Master SQL LIMIT.",
-  "subtitle2": "Learn how to return only the required number of rows.",
+  "subtitle2": "sql-stories-3",
   "cardhead": "The Problem",
   "cardcontent": "Ananya wants to show only the top 3 highest-scoring students. She remembers SQL has a LIMIT keyword to restrict the number of rows returned!",
   "content1": "Input Dataset",

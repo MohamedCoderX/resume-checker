@@ -1,7 +1,7 @@
 {
   "title": "Learn SQL with Step-by-Step Visual Execution",
   "subtitle1": "Understand LEFT JOIN in SQL.",
-  "subtitle2": "Learn how to keep all rows from the left table even if no match exists.",
+  "subtitle2": "sql-stories-6",
   "cardhead": "The Problem",
   "cardcontent": "Now a new department 'Sports' is added without a head assigned yet. Ananya wants to list all departments with their heads, even if some departments don’t have a head. LEFT JOIN helps!",
   "content1": "Dataset",

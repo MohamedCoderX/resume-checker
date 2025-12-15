@@ -1,7 +1,7 @@
 {
   "title": "Learn SQL with Step-by-Step Visual Execution",
   "subtitle1": "Learn SUBQUERY in SQL.",
-  "subtitle2": "Use one query inside another to solve complex problems.",
+  "subtitle2": "sql-stories-7",
   "cardhead": "The Problem",
   "cardcontent": "Ananya wants to find students who scored above the class average. She uses a SUBQUERY inside the WHERE clause to compute it!",
   "content1": "Dataset",

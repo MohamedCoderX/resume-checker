@@ -1,7 +1,7 @@
 {
   "title": "Learn SQL with Step-by-Step Visual Execution",
   "subtitle1": "Understand INNER JOIN in SQL.",
-  "subtitle2": "Learn how to combine data from two related tables.",
+  "subtitle2": "sql-stories-5",
   "cardhead": "The Problem",
   "cardcontent": "Ananya wants to display student names with their department head. The details of department heads are stored in another table. INNER JOIN helps her link both tables!",
   "content1": "Input Dataset",

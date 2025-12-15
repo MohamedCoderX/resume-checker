@@ -2,7 +2,7 @@
 {
     "title": "Learn SQL with Step-by-Step Visual Execution",
     "subtitle1": "Master the fundamentals of SQL — from basics to advanced concepts.",
-    "subtitle2": "Learn interactively, visualize data, and grow your real-world skills step by step.",
+    "subtitle2": "sql-stories-1",
     "cardhead": "The Problem",
     "cardcontent": "Ananya works as a junior data analyst at EduTrack University. She’s been assigned to prepare a report card summary from the students table. But she noticed that some students are from the same department, and her mentor asked her to calculate average marks by department instead of listing every student. She remembered hearing about a magical SQL word — GROUP BY — that can help summarize data. Let’s see how Ananya learns to use it! ",
     "content1": "Input Datasets",

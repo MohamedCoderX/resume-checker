@@ -16,8 +16,8 @@ import json8 from "../JsonFile/card8.json";
 export const courses = [
   {
     id: 1,
-    title: "Categorize Cloud Accounts by Resource Usage Tier",
-    url:"Learn interactively, visualize data, and grow your real-world skills step by step.",
+    title: "Prepare a report card summary",
+    url:"sql-stories-1",
     difficulty: "Easy",
     type: "Free",
     steps: "5 Steps",
@@ -25,8 +25,8 @@ export const courses = [
   },
   {
     id: 2,
-    title: "Find Affordable Flight Tickets using WHERE Condition",
-    url:"Learn how to arrange data ascending or descending.",
+    title: "How to arrange data ascending or descending.",
+    url:"sql-stories-2",
     difficulty: "Hard",
     type: "Free",
     steps: "6 Steps",
@@ -34,8 +34,8 @@ export const courses = [
   },
   {
     id: 3,
-    title: "Emotion-Based Ad Targeting — Who Gets Which Ad?",
-    url:"Learn how to return only the required number of rows.",
+    title: "Learn how to return only the required number of rows.",
+    url:"sql-stories-3",
     difficulty: "Easy",
     type: "Free",
     steps: "4 Steps",
@@ -43,8 +43,8 @@ export const courses = [
   },
   {
     id: 4,
-    title: "Is Your Product Code a Palindrome?",
-    url:"Learn how to remove duplicates and get unique values.",
+    title: "Learn how to remove duplicates and get unique values.",
+    url:"sql-stories-4",
     difficulty: "Medium",
     type: "Paid",
     steps: "3 Steps",
@@ -52,8 +52,8 @@ export const courses = [
   },
   {
     id: 5,
-    title: "Emotion-Based Ad Targeting — Who Gets Which Ad?",
-    url:"Learn how to combine data from two related tables",
+    title: "Learn how to combine data from two related tables",
+    url:"sql-stories-5",
     difficulty: "Learn",
     type: "Paid",
     steps: "4 Steps",
@@ -61,8 +61,8 @@ export const courses = [
   },
   {
     id: 6,
-    title: "Is Your Product Code a Palindrome?",
-    url:"Learn how to keep all rows from the left table even if no match exists.",
+    title: "Learn how to keep all rows from the left table even if no match exists.",
+    url:"sql-stories-6",
     difficulty: "Learn",
     type: "Paid",
     steps: "3 Steps",
@@ -70,8 +70,8 @@ export const courses = [
   },
   {
     id: 7,
-    title: "Categorize Cloud Accounts by Resource Usage Tier",
-    url:"Use one query inside another to solve complex problems",
+    title: "Use one query inside another to solve complex problems",
+    url:"sql-stories-7",
     difficulty: "Easy",
     type: "Free",
     steps: "5 Steps",
@@ -79,8 +79,8 @@ export const courses = [
   },
   {
     id: 8,
-    title: "Find Affordable Flight Tickets using WHERE Condition",
-    url:"Create conditional logic inside queries.",
+    title: "Create conditional logic inside queries.",
+    url:"sql-stories-8",
     difficulty: "Hard",
     type: "Free",
     steps: "6 Steps",

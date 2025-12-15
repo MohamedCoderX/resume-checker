@@ -24,7 +24,7 @@ export default function Footer() {
          <img src={logo} className="w-25 h-18"/>
         </Link>
           <p className="text-sm leading-relaxed text-gray-700 mb-5">
-            Learnitence helps students and developers master SQL with hands-on tutorials,
+            Upzure helps students and developers master skills with hands-on tutorials,
             challenges, and real-world projects.
           </p>
           <div className="flex gap-4">
@@ -80,7 +80,7 @@ export default function Footer() {
 
       {/* Divider */}
       <div className="relative border-t border-gray-300 mt-12 pt-4 text-center text-sm text-gray-700 z-10">
-        © 2025 <span className="font-medium">Learnitence</span>. All rights reserved. •{" "}
+        © 2025 <a href="https://skillrefill.in/"><span className="font-medium">SkillRefill</span></a>. All rights reserved. •{" "}
         <a href="#" className="hover:text-indigo-600">Privacy Policy</a> •{" "}
         <a href="#" className="hover:text-indigo-600">Terms of Service</a>
       </div>
