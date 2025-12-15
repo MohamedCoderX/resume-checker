@@ -8,10 +8,10 @@ export default function ResumeHeader() {
   const controls = useAnimation();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+
       controls.start("visible");
-    }, 1000);
-    return () => clearTimeout(timer);
+   
+    
   }, [controls]);
 
 
@@ -93,7 +93,7 @@ export default function ResumeHeader() {
           }}
           transition={{ duration: 1, delay: 0.9 }}
         >
-          <motion.button
+          {/* <motion.button
             whileHover={{
               scale: 1.05,
               boxShadow: "0px 0px 15px rgba(236,72,153,0.3)",
@@ -103,11 +103,11 @@ export default function ResumeHeader() {
           >
             <Sparkles className="h-5 w-5" />
             Get Pro Plan
-          </motion.button>
+          </motion.button> */}
 
         
 
-          <motion.button
+          {/* <motion.button
             
             whileHover={{
               scale: 1.05,
@@ -118,7 +118,7 @@ export default function ResumeHeader() {
           >
             <Upload className="h-5 w-5 text-pink-200" />
             Upload Resume
-          </motion.button>
+          </motion.button> */}
         </motion.div>
       </section>
     </div>

@@ -8,6 +8,7 @@ import OurSection from "../components/common/OurSection";
 import Faq from "../components/common/Faq";
 
 import Chatbot from "../components/common/Chatbot";
+import About from "../components/common/About";
 
 const Home = () => {
   
@@ -17,7 +18,8 @@ const Home = () => {
       {/* Particle effect first */}
      
           <HeroSection />
-          <Chatbot/>
+          {/* <Chatbot/> */}
+          <About/>
           <OurSection />
           {/* <Faq /> */}
           <Testimonial />

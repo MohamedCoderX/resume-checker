@@ -1,279 +1,203 @@
-import React from "react"
-import { Bs1CircleFill } from "react-icons/bs";
-import { Bs2CircleFill, Bs3CircleFill } from "react-icons/bs";
+import React from "react";
+import { Bs1CircleFill, Bs2CircleFill, Bs3CircleFill } from "react-icons/bs";
 import { RiMenuFoldLine } from "react-icons/ri";
 import { LuPartyPopper } from "react-icons/lu";
 import { PiFileSqlDuotone } from "react-icons/pi";
-import json from "../../JsonFile/content.json"
-import Table from "./Table"
-// import Chatbotanime from "../../component2/chatbotAnime";
+import json from "../../JsonFile/content.json";
+import Table from "./Table";
 
 const Content = () => {
-
-
-  // card2
   const cardnames = [
     { name: "WINDOWS FUNCTION" },
     { name: "ORDER BY" },
     { name: "CASE" },
-    { name: "AGGREGATION" }
-  ]
+    { name: "AGGREGATION" },
+  ];
 
-  const numberIcons =
-  {
+  const numberIcons = {
     icon: <Bs1CircleFill />,
     icon1: <Bs2CircleFill />,
-    icon2: <Bs3CircleFill />
-  }
+    icon2: <Bs3CircleFill />,
+  };
+
   return (
-    <>
-      <div className="grid gap-5 kumbh-sans-font">
-
-        {/* content HEAD */}
-
-
-        <div className=" w-full ">
-          <div className="text-center text-5xl mx-auto lg:w-170 font-semibold">
-            <h1>{json.title}</h1>
-          </div>
-          <div className="text-2xl text-center py-10 text-pink-400">
-            <h1>{json.subtitle1}</h1>
-            <h1>{json.subtitle2}</h1>
-          </div>
+    <div className="w-full flex flex-col gap-8 bg-gradient-to-b from-gray-50 to-white py-10 px-6 sm:px-10">
+      {/* HEADER */}
+      <div className="text-center space-y-6">
+        <h1 className="text-4xl sm:text-5xl font-bold text-gray-900">
+          {json.title}
+        </h1>
+        <div className="text-lg sm:text-2xl text-pink-500 font-medium">
+          <p>{json.subtitle1}</p>
+          <p>{json.subtitle2}</p>
         </div>
-
-
-        {/* content card1 */}
-
-        <div className="bg-white p-4 border border-gray-200 rounded-xl ">
-          <div className="">
-            <h1 className="text-2xl font-semibold">{json.cardhead}</h1>
-            <h1 className="text-gray-600 text-lg  mt-2">{json.cardcontent}</h1>
-          </div>
-        </div>
-
-        {/* content card2 */}
-
-        <div className="bg-blue-200 p-4 border border-blue-400 rounded-xl ">
-          <div className="lg:grid gap-2">
-            <h1 className="text-2xl font-semibold text-blue-500">{json.card2head}</h1>
-            <h1 className="text-gray-600">{json.card2content}</h1>
-            <div className="lg:flex gap-5 ">
-              {
-                cardnames.map((cardname, index) => (
-                  <div key={index} className="border  border-blue-500 rounded-3xl p-2 bg-white text-blue-500 font-medium">
-                    <h1 >{cardname.name}</h1>
-                  </div>
-                ))
-              }
-            </div>
-          </div>
-        </div>
-
-
-
-        {/* content cardtable */}
-
-
-
-
-
-        <div className="border bg-white rounded-xl p-5  ">
-          <div>
-            <h1 className="text-2xl font-semibold">{json.content1}</h1>
-            <h1 className="text-gray-500 text-lg mt-1 mb-2">{json.content2}</h1>
-            <h1 className="text-lg font-bold">{json.content3}</h1>
-          </div>
-
-          <Table content={json.table} />
-
-          <div className="" >
-            <h1 className="font-bold mt-3 mb-3">
-              Table: train_capacity
-            </h1>
-            <table className="w-full">
-              <thead className=" bg-blue-200  text-black  ">
-                <tr className="text-2xl">
-                  <th className="p-5  rounded-tl-2xl rounded-bl-2xl font-small " >Premium_total</th>
-                  <th className="p-5  rounded-tr-2xl rounded-br-2xl font-small " >Premium_expected_noshow</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className=" border-b-1  border-gray-400 rounded-xl text-gray-600 text-center " >
-                  <td className=" pt-9 pb-3">{json.pretotal}</td>
-                  <td className=" pt-9 pb-3">{json.preexpecte}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-        </div>
-
-
-        {/* card4 ->1 */}
-
-
-        <div className=" grid gap-6 " >
-          {
-            json.contcard1.map((cardinfo, index4) => (
-              <div key={index4} className="bg-white border border-gray-200 rounded-xl ">
-
-
-                {/* heading with icons */}
-                <div className=" flex gap-2 bg-blue-500 p-8 text-2xl text-white rounded-tl-xl rounded-tr-xl">
-
-
-                  <h1 className="text-4xl bg-blue-500  rounded-4xl" >{numberIcons[cardinfo.icons]}</h1>
-                  <h1 className="mt-1"> {cardinfo.title}</h1>
-
-
-                </div>
-
-
-                {/* content */}
-
-                <div className="p-5 grid gap-3 p-4">
-                  <h1 className=" font-semibold">{cardinfo.subtitle}</h1>
-
-                  {/* code */}
-
-                  <div className="bg-black/70 text-white p-4 rounded-xl">
-                    <h1 style={{ whiteSpace: "pre-wrap" }}>{cardinfo.code}</h1>
-                  </div>
-
-
-
-                  <div >
-                    {
-                      cardinfo.multicont.map((innerinfo, index5) => (
-                        <div key={index5} className="bg-blue-100 p-5 rounded-xl border-l-7 border-blue-500  inset-shadow-sm inset-shadow-black/60  text-gray-500 " >
-                          <ul className="list-disc list-inside">
-                            <li>{innerinfo.word1}</li>
-                            <li>{innerinfo.word2}</li>
-                            <li>{innerinfo.word3}</li>
-                            <li>{innerinfo.word4}</li>
-                            <li>{innerinfo.word5}</li>
-                          </ul>
-
-                        </div>
-                      ))
-                    }
-                  </div>
-                </div>
-                <div className="p-4">
-                  {
-                    (Array.isArray(cardinfo.table2) ? cardinfo.table2 : [cardinfo.table2]).map((conttable, index6) => (
-                      <div key={index6}>
-                        <Table content={conttable} />
-                      </div>
-                    )
-                    )
-                  }
-                </div>
-
-              </div>
-            ))
-          }
-
-
-        </div>
-
-
-
-
-        {/* complete Query */}
-
-
-        <div className="bg-blue-100 border-2 border-blue-400 p-4 rounded-xl">
-          <div>
-            <h1 className="text-blue-600 font-semibold text-2xl">Complete Query</h1>
-          </div>
-
-          <div className="bg-black/70 text-white p-4 rounded-xl mt-5">
-            <h1 style={{ whiteSpace: 'pre-wrap' }}>{json.codeComQuery} </h1>
-          </div>
-        </div>
-
-        {/* now you try */}
-
-        <div className="bg-white p-4 rounded-xl grid gap-2 ">
-
-          <h1 className="font-semibold text-2xl">Now You Try!</h1>
-
-          <h1 className="text-gray-500 text-md">Practice the query in the editor below and run it</h1>
-
-
-          <div className="bg-green-500 w-full flex gap-2 justify-center p-3 text-2xl rounded-xl text-white font-semibold">
-            <h1 className="text-3xl"><PiFileSqlDuotone /></h1>
-            Query Editor</div>
-
-          <div className=" border-1 border-gray-400 bg-white text-gray-400 p-3 rounded-xl mt-5">
-            <h1 style={{ whiteSpace: 'pre-wrap' }}>{json.codeComQuery} </h1>
-          </div>
-
-          {/* 2 buttons */}
-
-          <div className="p-3">
-            <div className="grid gap-6">
-              <div className="flex flex-row gap-5 text-2xl text-center">
-                <div className="bg- white basis-2/3 border-1 border-red-300  rounded-xl text-red-300 p-5 ">
-                  <button >Clear Qurey</button>
-                </div>
-                <div className="bg-green-500 basis-2/3   rounded-xl text-white p-5">
-                  <div className="flex gap-2 justify-center   " >
-                    <h1 className="rotate-180 mb-1"> <RiMenuFoldLine /> </h1>
-                    Run Qurey</div>
-                </div>
-              </div>
-
-              <div className=" text-center text-white bg-green-500 text-2xl p-4 rounded-xl">
-                <div className="flex gap-2 justify-center">
-                  <h1 className="text-3xl"><PiFileSqlDuotone /></h1>
-                  Qurey Result</div>
-              </div>
-
-
-              <div className="border-1 border-green-700 bg-green-100 text-green-600 p-5  rounded-xl font-semibold ">
-                <h1 className="text-2xl mt-3 mb-2 ">Perfect! Your Qurey is correct!</h1>
-                <h1 className="text-md">Your output matches the expected result. Question completed!</h1>
-              </div>
-
-            </div>
-            <div>
-              <Table content={json.Lasttable} />
-            </div>
-
-            <div className=" border-2 text-center border-dashed border-gray-7 00 p-5 bg-pink-50 rounded-xl mt-4">
-              <h1 className="text-3xl">Finished Practice</h1>
-              <h1 className="m-2">Mark this question as complete to track your learning progress and earn badges!</h1>
-
-              <div className="flex justify-center">
-                <div className="bg-green-600 text-2xl p-4 rounded-xl text-white w-1/3 ">
-                  <div className="flex gap-2 justify-center ">
-                    <h1 >
-                      <LuPartyPopper className="text-3xl" /></h1>
-                    <h1>Mark as Complete</h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-
-
-
-
-
-
-
-
       </div>
-      {/* <Chatbotanime /> */}
-    </>
-  )
-}
 
-export default Content
+      {/* CARD 1 — Problem Intro */}
+      <div className="bg-white/90 backdrop-blur-xl border border-gray-100 shadow-lg rounded-2xl p-6">
+        <h2 className="text-2xl font-semibold text-gray-800">{json.cardhead}</h2>
+        <p className="text-gray-600 mt-3 text-base leading-relaxed">
+          {json.cardcontent}
+        </p>
+      </div>
+
+      {/* CARD 2 — Overview */}
+      <div className="bg-gradient-to-r from-indigo-50 to-pink-50 border border-indigo-100 rounded-2xl p-6 shadow-md">
+        <h2 className="text-2xl font-semibold text-indigo-700 mb-2">
+          {json.card2head}
+        </h2>
+        <p className="text-gray-700 mb-4">{json.card2content}</p>
+        <div className="flex flex-wrap gap-3">
+          {cardnames.map((card, i) => (
+            <div
+              key={i}
+              className="bg-white border border-indigo-400 text-indigo-600 px-4 py-2 rounded-full font-medium text-sm shadow-sm"
+            >
+              {card.name}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* TABLE SECTION */}
+      <div className="bg-white/90 backdrop-blur-xl border border-gray-100 rounded-2xl p-6 shadow-md">
+        <h2 className="text-2xl font-semibold text-gray-800">{json.content1}</h2>
+        <p className="text-gray-500 mt-2 text-base">{json.content2}</p>
+        <h3 className="text-lg font-semibold text-gray-800 mt-3">
+          {json.content3}
+        </h3>
+
+        <Table content={json.table} />
+
+        <div className="mt-6">
+          <h3 className="font-bold text-lg mb-2 text-gray-800">
+            Table: train_capacity
+          </h3>
+          <table className="w-full border border-gray-100 rounded-xl overflow-hidden">
+            <thead className="bg-gradient-to-r from-indigo-100 to-pink-100 text-gray-800">
+              <tr>
+                <th className="p-4 text-left">Premium_total</th>
+                <th className="p-4 text-left">Premium_expected_noshow</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="text-gray-700 text-center bg-white">
+                <td className="py-4">{json.pretotal}</td>
+                <td className="py-4">{json.preexpecte}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* CARD 4 — Step-by-Step SQL Logic */}
+      <div className="flex flex-col gap-8">
+        {json.contcard1.map((card, idx) => (
+          <div key={idx} className="bg-white border border-gray-200 rounded-2xl shadow-md">
+            <div className="flex items-center gap-3 bg-gradient-to-r from-indigo-600 to-pink-500 text-white p-5 rounded-t-2xl">
+              <div className="text-3xl">{numberIcons[card.icons]}</div>
+              <h3 className="text-xl font-semibold">{card.title}</h3>
+            </div>
+
+            <div className="p-5 space-y-4">
+              <h4 className="font-semibold text-gray-800">{card.subtitle}</h4>
+
+              <div className="bg-black text-white p-4 rounded-lg font-mono text-sm overflow-x-auto">
+                <pre>{card.code}</pre>
+              </div>
+
+              {card.multicont?.map((inner, j) => (
+                <div
+                  key={j}
+                  className="bg-indigo-50 border-l-4 border-indigo-400 p-4 rounded-lg text-gray-700 text-sm"
+                >
+                  <ul className="list-disc list-inside space-y-1">
+                    {[inner.word1, inner.word2, inner.word3, inner.word4, inner.word5]
+                      .filter(Boolean)
+                      .map((w, i) => (
+                        <li key={i}>{w}</li>
+                      ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <div className="p-5">
+              {(Array.isArray(card.table2) ? card.table2 : [card.table2]).map((tbl, i) => (
+                <Table key={i} content={tbl} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* COMPLETE QUERY */}
+      <div className="bg-gradient-to-r from-indigo-50 to-pink-50 border border-indigo-200 p-6 rounded-2xl shadow-md">
+        <h2 className="text-indigo-700 font-semibold text-2xl mb-3">
+          Complete Query
+        </h2>
+        <div className="bg-black text-white p-4 rounded-lg text-sm font-mono">
+          <pre>{json.codeComQuery}</pre>
+        </div>
+      </div>
+
+      {/* PRACTICE SECTION */}
+      <div className="bg-white border border-gray-100 rounded-2xl shadow-lg p-6 space-y-5">
+        <h2 className="text-2xl font-semibold text-gray-800">Now You Try!</h2>
+        <p className="text-gray-500">Practice the query in the editor below and run it.</p>
+
+        <div className="flex items-center justify-center bg-gradient-to-r from-green-500 to-green-400 text-white p-4 rounded-xl font-semibold gap-2">
+          <PiFileSqlDuotone className="text-3xl" /> Query Editor
+        </div>
+
+        <div className="border border-gray-300 bg-gray-50 p-3 rounded-xl text-gray-700 font-mono text-sm">
+          <pre>{json.codeComQuery}</pre>
+        </div>
+
+        {/* BUTTONS */}
+        <div className="flex gap-4 text-lg font-medium">
+          <button className="flex-1 border border-red-300 text-red-400 rounded-xl py-3 hover:bg-red-50 transition">
+            Clear Query
+          </button>
+          <button className="flex-1 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl py-3 hover:scale-[1.02] transition">
+            <div className="flex items-center justify-center gap-2">
+              <RiMenuFoldLine className="rotate-180 text-xl" />
+              Run Query
+            </div>
+          </button>
+        </div>
+
+        {/* QUERY RESULT */}
+        <div className="bg-green-500 text-white text-xl rounded-xl py-3 text-center font-semibold flex items-center justify-center gap-2">
+          <PiFileSqlDuotone className="text-3xl" /> Query Result
+        </div>
+
+        <div className="bg-green-50 border border-green-300 p-5 rounded-xl text-green-700">
+          <h3 className="text-xl font-semibold">✅ Perfect! Your Query is Correct!</h3>
+          <p className="text-sm mt-1">
+            Your output matches the expected result. Question completed!
+          </p>
+        </div>
+
+        <Table content={json.Lasttable} />
+
+        {/* MARK COMPLETE */}
+        <div className="border-2 border-dashed border-gray-300 bg-pink-50 rounded-2xl p-6 text-center space-y-3">
+          <h2 className="text-2xl font-semibold text-gray-800">
+            Finished Practice
+          </h2>
+          <p className="text-gray-600">
+            Mark this question as complete to track your learning progress and earn badges!
+          </p>
+
+          <button className="mx-auto flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:scale-105 transition">
+            <LuPartyPopper className="text-2xl" />
+            Mark as Complete
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Content;

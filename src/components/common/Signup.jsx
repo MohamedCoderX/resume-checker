@@ -36,17 +36,8 @@ const navigate = useNavigate();
       
       
     } catch (error) {
-      if (error.response) {
-        console.error("API Error:", error.response.data);
-        alert("Signup failed: " + JSON.stringify(error.response.data));
-      } else if (error.request) {
-        console.error("Network Error:", error.request);
-        alert("Network error. Check your connection or API URL.");
-      } else {
-        console.error("Error:", error.message);
-        alert("Error: " + error.message);
-      }
-      
+
+console.error("Error during signup:", error);      
     }
     finally {
     toast.success("signup completed login ",{position:"top-right",autoClose:3000});

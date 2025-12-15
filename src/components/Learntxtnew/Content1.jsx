@@ -1,76 +1,41 @@
 import React from "react";
-// import { useState } from "react";
-// import json from "../../JsonFile/content1.json"
 import Table from "../Learn/Table";
-import { Bs1CircleFill } from "react-icons/bs";
-import { Bs2CircleFill, Bs3CircleFill ,Bs4CircleFill} from "react-icons/bs";
-// import { useLocation } from "react-router-dom";
+import { Bs1CircleFill, Bs2CircleFill, Bs3CircleFill, Bs4CircleFill } from "react-icons/bs";
 
 const Content1 = ({ state }) => {
-    // const [DarkMood, setDakMood] = useState(1);
-    // const { state } = useLocation(); // get json
+  const numberIcons = {
+    icon1: <Bs1CircleFill />,
+    icon2: <Bs2CircleFill />,
+    icon3: <Bs3CircleFill />,
+    icon4: <Bs4CircleFill />,
+  };
 
+  return (
+    <div className="w-full flex flex-col gap-6">
+      <div className="bg-white/90 backdrop-blur-xl border border-gray-100 rounded-2xl shadow-lg transition-all duration-500 hover:shadow-2xl overflow-hidden">
+        {/* Header with gradient */}
+        <div className="flex items-center gap-3 bg-gradient-to-r from-indigo-600 to-pink-500 text-white p-6 sm:p-8">
+          <div className="text-3xl sm:text-4xl">{numberIcons[state?.table1?.icons]}</div>
+          <h2 className="text-xl sm:text-2xl font-semibold">{state?.table1?.title}</h2>
+        </div>
 
-    const numberIcons =
-    {
-        icon1: <Bs1CircleFill />,
-        icon2: <Bs2CircleFill />,
-        icon3: <Bs3CircleFill />,
-        icon4:<Bs4CircleFill />
-    }
+        {/* Code Block */}
+        <div className="bg-gray-900 text-gray-100 font-mono text-sm sm:text-base p-4 sm:p-5 rounded-lg m-5 overflow-x-auto border border-gray-800">
+          <pre style={{ whiteSpace: "pre-wrap" }}>{state?.table1?.code}</pre>
+        </div>
 
-    // const numbers = [1, 2, 3, 4];
-    // const handlebg=()=>{
-    //     setDakMood(number.idno);
-    // }
+        {/* Output Heading */}
+        <h3 className="ml-6 text-lg sm:text-xl font-semibold text-gray-800 mb-3">
+          {state?.table1?.output}
+        </h3>
 
+        {/* Table */}
+        <div className="px-5 pb-6">
+          <Table content={state?.table1} />
+        </div>
+      </div>
+    </div>
+  );
+};
 
-
-    // const pageContent = {
-    //     1: "page 1 content",
-    //     2: "This is page 2 content",
-    //     3: "This is page 3 content",
-    //     4: "This is page 4 content",
-    //   };
- 
-
-    return (
-        <>
-            <div className="grid gap-5 kumbh-sans-font">
-                
-
-                {/* content table2 */}
-                <div className=" bg-white rounded-xl p-5  border-l-7 border-blue-500  inset-shadow-sm border-1 ">
-
-                    <div>
-                        {/* heading with icons */}
-                        <div className=" flex gap-2 bg-blue-500 p-8 text-2xl text-white rounded-tl-xl rounded-tr-xl">
-                            <h1 className="text-4xl bg-blue-500  rounded-4xl" >{numberIcons[state?.table1?.icons]}</h1>
-                            <h1 className="mt-1"> {state?.table1?.title}</h1>
-
-
-                        </div>
-
-                        {/* code */}
-                      
-
-                        <div className="mt-3 bg-black/70 text-white p-4 rounded-xl">
-                            <h1 style={{ whiteSpace: "pre-wrap" }}>{state?.table1?.code}</h1>
-                        </div>
-
-
-                    </div>
-
-                    <h1 className="ml-3 font-semibold text-xl mt-2">{state?.table1?.output}</h1>
-
-
-                    <Table content={state?.table1} />
-
-                </div>
-
-
-            </div>
-        </>
-    )
-}
 export default Content1;

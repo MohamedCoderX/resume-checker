@@ -1,66 +1,58 @@
 import React from "react";
-// import { useState } from "react";
-// import json from "../../JsonFile/content1.json"
 import Table from "../Learn/Table";
 import { Bs3CircleFill } from "react-icons/bs";
-// import { useLocation } from "react-router-dom";
-
 
 const Content1 = ({ state }) => {
-    // const [DarkMood, setDakMood] = useState(1);
-    // const { state } = useLocation(); // get json
+  const numberIcons = {
+    icon3: <Bs3CircleFill />,
+  };
 
+  const content = state?.table3;
 
-    const numberIcons =
-    {
-        icon3: <Bs3CircleFill />,  
-    }
+  return (
+    <div className="w-full flex flex-col gap-6">
+      <div className="bg-white/90 backdrop-blur-xl border border-gray-100 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
+        
+        {/* HEADER */}
+        <div className="flex items-center gap-3 bg-gradient-to-r from-indigo-600 to-pink-500 text-white p-6 sm:p-8">
+          <div className="text-3xl sm:text-4xl">
+            {numberIcons[content?.icons]}
+          </div>
+          <h2 className="text-xl sm:text-2xl font-semibold">
+            {content?.title}
+          </h2>
+        </div>
 
-    return (
-        <>
-            <div className="grid gap-5 kumbh-sans-font">
-                
+        {/* INFO BOX */}
+        {content?.word && (
+          <div className="mt-5 mx-5 bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-xl text-gray-700">
+            <ul className="list-disc list-inside">
+              <li>{content.word}</li>
+            </ul>
+          </div>
+        )}
 
-                {/* content table2 */}
-                <div className="border bg-white rounded-xl p-5 border-l-7 border-blue-500  inset-shadow-sm border-1   ">
+        {/* CODE BLOCK */}
+        {content?.code && (
+          <div className="mt-5 mx-5 bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm overflow-x-auto border border-gray-800">
+            <pre style={{ whiteSpace: "pre-wrap" }}>{content.code}</pre>
+          </div>
+        )}
 
-                    <div>
-                        {/* heading with icons */}
-                        <div className=" flex gap-2 bg-blue-500 p-8 text-2xl text-white rounded-tl-xl rounded-tr-xl">
+        {/* OUTPUT TEXT */}
+        {content?.output && (
+          <h3 className="ml-6 text-lg sm:text-xl font-semibold text-gray-800 mt-4">
+            {content.output}
+          </h3>
+        )}
 
+        {/* TABLE */}
+        <div className="px-5 pb-6">
+          <Table content={content} />
+        </div>
+      </div>
+    </div>
+  );
+};
 
-                            <h1 className="text-4xl bg-blue-500  rounded-4xl" >{numberIcons[state?.table3?.icons]}</h1>
-                            <h1 className="mt-1"> {state?.table3?.title}</h1>
-
-
-                        </div>
-
-                        {/* words */}
-                        <div className="mt-3">
-                        <div className="bg-blue-100 p-5 rounded-xl border-l-7 border-blue-500  inset-shadow-sm inset-shadow-black/60  text-gray-500 ">
-                            <ul className="list-disc list-inside">
-                                <li>{state?.table3?.word}</li>
-                            </ul>
-
-                        </div>
-                        </div>
-
-
-                        {/* code */}
-                      
-
-                        <div className="mt-3 bg-black/70 text-white p-4 rounded-xl">
-                            <h1 style={{ whiteSpace: "pre-wrap" }}>{state?.table3?.code}</h1>
-                        </div>
-
-
-                    </div>
-
-                    <h1 className="ml-3 font-semibold text-xl mt-2">{state?.table1?.output}</h1>
-                    <Table content={state?.table3} />
-                </div>
-            </div>
-        </>
-    )
-}
 export default Content1;

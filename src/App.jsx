@@ -15,6 +15,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from './components/common/Footer'
 import Courses from './pages/Courses'
+import ScrollToTop from './components/common/ScrollToTop'
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
     <BrowserRouter>
      <Nav/>
      <ToastContainer position="top-right" autoClose={3000} />
+     <ScrollToTop/>
     <Routes>
     
 <Route path='/' element={<Home/>}/>

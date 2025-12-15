@@ -371,109 +371,124 @@ const SqlVisual2 = () => (
 
 /* 🔹 Card Component *//* 🔹 Card Component */
 const HighlightCard = ({ title, description, children, showInput = true }) => (
-    <div
-        className="bg-[#F6F6F6] rounded-2xl shadow-[0_6px_15px_rgba(0,0,0,0.12)] 
-               p-3 flex flex-col h-full border border-gray-100 
-               transition-all duration-300  group"
-    >
-        <div
-            className="h-50  mb-4 flex items-center justify-center 
-                 bg-[#F6F6F6] rounded-lg overflow-hidden border-2 border-gray-200
-                 "
-        >
-            {children}
+    <div className="relative bg-gradient-to-br from-white/90 to-gray-50/70 backdrop-blur-md rounded-3xl border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.12)] transition-all duration-500 overflow-hidden group">
+      {/* glowing gradient edge */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-indigo-100 via-pink-50 to-transparent opacity-40 group-hover:opacity-70 transition-opacity duration-500 -z-10"></div>
+  
+      {/* card content */}
+      <div className="p-5 flex flex-col h-full">
+        <div className="h-52 flex items-center justify-center rounded-2xl overflow-hidden border border-gray-100 bg-white shadow-inner mb-5">
+          {children}
         </div>
-
-        <div
-            className="flex flex-col border-2 border-gray-200 bg-[#F6F6F6] p-2 rounded-lg flex-grow 
-                 "
-        >
-            <h3 className="text-lg sm:text-xl font-semibold mb-2 px-2 text-gray-900">
-                {title}
-            </h3>
-            <p className="text-gray-600 text-md px-2 flex-grow">{description}</p>
-
-            {showInput && (
-                <div className="flex items-center p-2 gap-2 transition-all duration-500 ease-in-out  rounded-lg">
-                    <style>
-                        {`
-              /* Smooth placeholder transition */
-              .group input::placeholder {
-                color: rgba(156,163,175,1);
-                transition: color 0.5s ease-in-out;
-              }
-              .group:hover input::placeholder {
-                color: black;
-              }
-            `}
-                    </style>
-
-                    <input
-                        type="text"
-                        disabled
-                        placeholder="Try Your Self With Us"
-                        className="flex-grow border-2 bg-[#F6F6F6] rounded-lg border-gray-100 p-2 
-                       focus:outline-none text-md placeholder-gray-400 px-2 text-gray-400
-                       transition-all duration-500 ease-in-out
-                       group-hover:text-black 
-                       shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
-                    />
-
-                    <button
-                        className="text-gray-400 border-2 bg-[#F6F6F6] rounded-lg border-gray-100 p-2 
-                       transition-all duration-500 ease-in-out
-                       group-hover:text-white group-hover:bg-black group-hover:border-black
-                       shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
-                    >
-                        <Send size={23} />
-                    </button>
-                </div>
-            )}
-        </div>
+  
+        <h3 className="text-xl font-semibold mb-2 text-gray-900">{title}</h3>
+        <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">{description}</p>
+  
+        {showInput && (
+          <div className="flex items-center p-2 gap-3 rounded-xl bg-white/60 border border-gray-200 shadow-inner group-hover:border-indigo-400 transition-all duration-300">
+            <input
+              type="text"
+              disabled
+              placeholder="Try Yourself With Us"
+              className="flex-grow bg-transparent text-sm text-gray-400 placeholder-gray-400 focus:outline-none group-hover:text-gray-800 transition-all"
+            />
+            <button className="text-gray-400 hover:text-white bg-gray-100 hover:bg-gradient-to-r hover:from-indigo-600 hover:to-pink-500 p-2 rounded-lg transition-all duration-300 shadow-md">
+              <Send size={20} />
+            </button>
+          </div>
+        )}
+      </div>
     </div>
-);
+  );
 
 
 /* 🌟 Final Layout */
 function OurSection() {
     const topHighlights = [
-        { id: 1, title: "ATS Resume Checker", description: "Upload your resume. Get a match score against real job descriptions + keyword optimization tips.", content: <ResumePreview /> },
-        { id: 2, title: "Communication Test", description: "Record answers to behavioral questions. Get AI feedback on clarity & structure.", content: <CommunicationVisual /> },
-        { id: 3, title: "Aptitude Test", description: "Timed quizzes on reasoning & problem-solving (used by FAANG).", content: <AptitudeTestContent /> },
+      {
+        id: 1,
+        title: "ATS Resume Checker",
+        description:
+          "Upload your resume and get instant feedback with AI-driven match scores and keyword optimization tips.",
+        content: <ResumePreview />,
+      },
+      {
+        id: 2,
+        title: "Communication Test",
+        description:
+          "Record answers to interview questions. Receive AI insights on clarity, confidence, and tone.",
+        content: <CommunicationVisual />,
+      },
+      {
+        id: 3,
+        title: "Aptitude Test",
+        description:
+          "Timed quizzes covering logic, reasoning, and data interpretation used by top tech companies.",
+        content: <AptitudeTestContent />,
+      },
     ];
-
+  
     const sqlHighlights = [
-        { id: 4, title: "SQL Learning Portal", description: "Learn SQL with real datasets (Spotify, Airbnb) and guided projects.", content: <SqlVisual1 /> },
-        { id: 5, title: "SQL Visual Interface", description: "Interactive schema explorer with live queries and keyword hints.", content: <SqlVisual2 /> },
+      {
+        id: 4,
+        title: "SQL Learning Portal",
+        description:
+          "Learn SQL hands-on using real datasets (Spotify, Airbnb) through guided problem-solving.",
+        content: <SqlVisual1 />,
+      },
+      {
+        id: 5,
+        title: "SQL Visual Interface",
+        description:
+          "Explore schema visually and run live queries with step-by-step interactive feedback.",
+        content: <SqlVisual2 />,
+      },
     ];
-
+  
     return (
-        <div className="bg-white font-sans text-gray-900 min-h-screen p-4 sm:p-8">
-            <main className="max-w-7xl mx-auto">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-12">
-                    Our Services
-                </h1>
-
-                {/* Top 3 Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-10">
-                    {topHighlights.map((item) => (
-                        <HighlightCard key={item.id} title={item.title} description={item.description}>
-                            {item.content}
-                        </HighlightCard>
-                    ))}
-                </div>
-
-                {/* SQL Section */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                    {sqlHighlights.map((item) => (
-                        <HighlightCard key={item.id} title={item.title} description={item.description}>
-                            {item.content}
-                        </HighlightCard>
-                    ))}
-                </div>
-            </main>
-        </div>
+      <div className="relative bg-gradient-to-b from-gray-50 to-white py-20 px-6 sm:px-10">
+        {/* background glow */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-indigo-100/50 via-pink-50/30 to-transparent blur-3xl -z-10"></div>
+  
+        <main className="max-w-7xl mx-auto">
+          <div className="text-center mb-14">
+            <h1 className="text-4xl sm:text-5xl font-bold mb-3 bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent">
+              Solutions We Provide
+            </h1>
+            <p className="text-gray-500 text-lg">
+              Practical learning. Real results. Interactive experiences powered by{" "}
+              <span className="font-semibold text-indigo-600">Upzure</span>.
+            </p>
+          </div>
+  
+          {/* Top Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {topHighlights.map((item) => (
+              <HighlightCard
+                key={item.id}
+                title={item.title}
+                description={item.description}
+              >
+                {item.content}
+              </HighlightCard>
+            ))}
+          </div>
+  
+          {/* SQL Section */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {sqlHighlights.map((item) => (
+              <HighlightCard
+                key={item.id}
+                title={item.title}
+                description={item.description}
+              >
+                {item.content}
+              </HighlightCard>
+            ))}
+          </div>
+        </main>
+      </div>
     );
-}
-
-export default OurSection;
+  }
+  
+  export default OurSection;

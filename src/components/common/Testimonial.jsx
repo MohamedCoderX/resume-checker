@@ -1,34 +1,39 @@
 import React, { useState } from "react";
+import review1 from "../../assets/review-1.jpg"
+import review2 from "../../assets/review-2.jpeg"
+import review3 from "../../assets/review-3.jpeg"
+import review4 from "../../assets/review-4.jpeg"
+import review5 from "../../assets/review-5.jpeg"
 
 const testimonials = [
   {
-    img: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe",
-    name: "Priya R.",
-    role: "Data Analyst @ Amazon",
-    text: "The ATS checker helped me increase my resume match score from 42% to 89%. Got 3 interviews in a week!",
+    img: review1,
+    name: "Praveen",
+    role: "Student @ Mam College",
+    text: "This helped me to learn sql queries and give me best resume suggestions",
   },
   {
-    img: "https://images.unsplash.com/photo-1511367461989-f85a21fda167",
-    name: "Arjun M.",
-    role: "Frontend Engineer @ Google",
+    img: review2,
+    name: "Prajeet",
+    role: "Student @ Kncet ",
     text: "This tool improved my resume visibility on job boards significantly!",
   },
   {
-    img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
-    name: "Sarah L.",
-    role: "UX Designer @ Spotify",
-    text: "Clean, efficient, and really helpful to understand how ATS works.",
+    img: review3,
+    name: "Anand",
+    role: "Student @ KNCET",
+    text: "Clean, efficient, and really helpful to understand how SQL Works",
   },
   {
-    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-    name: "Emily W.",
-    role: "Marketing Manager @ Airbnb",
-    text: "I refined my resume based on insights here — landed my dream job!",
+    img: review4,
+    name: "Surya",
+    role: "Student @ PSG College",
+    text: "I refined my resume based on insights here and landed multiple interviews.",
   },
   {
-    img: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91",
-    name: "Ravi K.",
-    role: "Finance Analyst @ Deloitte",
+    img: review5,
+    name: "Prem",
+    role: "Student @ SSM College",
     text: "Simple yet powerful. My match score skyrocketed in just one session.",
   },
 ];
@@ -38,7 +43,7 @@ export default function Testimonial() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center py-12">
-      <h2 className="text-4xl font-bold text-gray-800 mb-10">Testimonials</h2>
+     <span className="bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent font-semibold md:text-5xl mb-6">Testimonials</span> 
 
       <div className="flex justify-center items-center gap-3 w-full max-w-6xl px-4">
         {testimonials.map((t, index) => (

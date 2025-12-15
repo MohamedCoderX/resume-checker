@@ -28,18 +28,14 @@ export default function Footer() {
             challenges, and real-world projects.
           </p>
           <div className="flex gap-4">
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/company/skill-refill/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
               <FaLinkedinIn className="text-black hover:text-indigo-600 text-xl transition" />
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/skill_refill/" target="_blank" rel="noopener noreferrer">
               <FaInstagram className="text-black hover:text-indigo-600 text-xl transition" />
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <FaFacebookF className="text-black hover:text-indigo-600 text-xl transition" />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <FaYoutube className="text-black hover:text-indigo-600 text-xl transition" />
-            </a>
+            
+            
           </div>
         </div>
 

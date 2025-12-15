@@ -68,7 +68,7 @@ const[userName,setUserName]=useState("");
   
       // 🔁 Polling logic: keep checking result until "COMPLETED"
       let resultData = null;
-      for (let i = 0; i < 8; i++) { // tries up to 8 times (every 3 sec = 24s max)
+      for (let i = 0; i < 30; i++) { // tries up to 8 times (every 3 sec = 24s max)
         console.log(`⏳ Checking status (attempt ${i + 1})...`);
         const result = await axios.get(
           `https://u5zb74wmma.execute-api.us-east-1.amazonaws.com/v1/result/${resumeId}`,

@@ -9,10 +9,9 @@ export default function HeroSection() {
 
   // Wait 5 seconds, then trigger all animations
   useEffect(() => {
-    const timer = setTimeout(() => {
+    
       controls.start("visible");
-    }, 1000);
-    return () => clearTimeout(timer);
+   
   }, [controls]);
 
   return (
