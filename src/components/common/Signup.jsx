@@ -135,13 +135,13 @@ const navigate = useNavigate();
             </div>
 
             {/* GOOGLE BUTTON */}
-            <button
+            {/* <button
               type="button"
               className="w-full flex items-center justify-center border border-gray-300 rounded-lg py-2 hover:bg-gray-100 transition-all"
             >
               <FaGoogle className="text-red-500 mr-3" />
               Sign up with Google
-            </button>
+            </button> */}
           </form>
         </div>
 
